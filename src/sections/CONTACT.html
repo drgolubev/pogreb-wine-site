@@ -1,0 +1,49 @@
+<!-- CONTACT -->
+  <section class="sec" id="contact" style="padding-top:0">
+    <div class="wrap contact">
+      <div>
+        <span class="kicker">Контакты</span>
+        <h2>Расскажите о доме, и мы рассчитаем погреб</h2>
+        <div class="c-list">
+          <div class="c-item"><div><div class="c-k">Роман Голубев, директор</div><a class="c-v" href="tel:+79172057000">+7 917 205-70-00</a></div><button class="copy" type="button" data-copy="+7 917 205-70-00">Скопировать</button></div>
+          <div class="c-item"><div><div class="c-k">Офис</div><a class="c-v" href="tel:+79271575888">+7 927 157-58-88</a></div><button class="copy" type="button" data-copy="+7 927 157-58-88">Скопировать</button></div>
+          <div class="c-item"><div><div class="c-k">Почта</div><span class="c-v">pogreb.sar@yandex.ru</span></div><button class="copy" type="button" data-copy="pogreb.sar@yandex.ru">Скопировать</button></div>
+          <div class="c-item"><div><div class="c-k">Telegram-канал с объектами</div><a class="c-v" href="https://t.me/pogrebwine" target="_blank" rel="noopener">@pogrebwine</a></div></div>
+          <div class="c-item"><div><div class="c-k">Офис и производство</div><span class="c-v">Саратов, ул. Кособокова, 40</span></div></div>
+        </div>
+      </div>
+
+      <form class="form" id="leadForm" novalidate>
+        <div id="formBody">
+          <h3>Заявка на расчёт</h3>
+          <p class="form-sub">Ответим в течение рабочего дня.</p>
+          <div class="roles" role="radiogroup" aria-label="Кто вы">
+            <input type="radio" name="role" id="r-owner" value="Владелец дома" checked><label for="r-owner">Владелец дома</label>
+            <input type="radio" name="role" id="r-arch" value="Архитектор или дизайнер"><label for="r-arch">Архитектор или дизайнер</label>
+            <input type="radio" name="role" id="r-rest" value="Ресторан или винотека"><label for="r-rest">Ресторан или винотека</label>
+          </div>
+          <div class="fields">
+            <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" autocomplete="name" required><span class="err" id="e-name"></span></div>
+            <div class="field"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7" required><span class="err" id="e-phone"></span></div>
+            <div class="field"><label for="f-city">Город</label><input id="f-city" name="city" autocomplete="address-level2"><span class="err"></span></div>
+            <div class="field"><label for="f-stage">Объект</label><select id="f-stage" name="stage"><option>Дом строится</option><option>Дом уже построен</option><option>Ресторан или бар</option><option>Пока выбираю</option></select><span class="err"></span></div>
+            <div class="field full"><label for="f-msg">Коллекция, пожелания, вопросы</label><textarea id="f-msg" name="msg" placeholder="Например: около 1 000 бутылок, люк в гостиной, нужен отпечаток пальца"></textarea></div>
+          </div>
+          <div class="form-foot">
+            <small>Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</small>
+            <button class="btn btn-wine" type="submit">Получить расчёт</button>
+          </div>
+        </div>
+        <div class="done" id="formDone" hidden>
+          <h3>Заявка готова</h3>
+          <p>Скопируйте текст и отправьте нам в Telegram или на почту, либо позвоните, и мы всё обсудим.</p>
+          <pre id="leadText"></pre>
+          <div class="done-actions">
+            <button class="btn btn-wine" type="button" id="copyLead">Скопировать заявку</button>
+            <a class="btn btn-line" href="tel:+79172057000">Позвонить</a>
+            <button class="btn btn-line" type="button" id="editLead">Изменить</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
