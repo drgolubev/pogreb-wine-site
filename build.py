@@ -12,7 +12,8 @@ src = os.path.join(ROOT, 'src')
 with open(os.path.join(OUT, 'style.css'), 'w', encoding='utf-8') as f:
     for name in ('style.css', 'extra.css'):
         f.write(open(os.path.join(src, name), encoding='utf-8').read() + '\n')
-shutil.copy(os.path.join(src, 'app.js'), os.path.join(OUT, 'app.js'))
+for js in ('app.js', 'konstruktor.js'):
+    shutil.copy(os.path.join(src, js), os.path.join(OUT, js))
 media_out = os.path.join(OUT, 'media')
 if os.path.abspath(media_out) != os.path.abspath(os.path.join(ROOT, 'media')):
     shutil.copytree(os.path.join(ROOT, 'media'), media_out, dirs_exist_ok=True)

@@ -81,6 +81,24 @@ kh+='''<section class="sec" style="padding-top:0"><div class="wrap lid">
     </dl>
   </div>
 </div></section>
+<section class="sec" style="padding-top:0"><div class="wrap lid lid-rev">
+  <div>
+    <span class="kicker">Готовый погреб</span>
+    <h2>Белые блоки, дубовые ступени, тёплый свет</h2>
+    <p class="lid-lead">Так погреб выглядит изнутри после сдачи. Ниши по всей высоте спирали, ступени из дуба, подсветка по окружности пола и люка.</p>
+  </div>
+  <div class="etz-video"><video src="media/kh-ready.mp4" poster="media/kh-ready-poster.jpg" muted loop playsinline preload="metadata" aria-label="Белые модульные блоки и дубовые ступени погреба на вилле в Хосте"></video></div>
+</div></section>
+<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="sec-head"><div><span class="kicker">Как ставили</span><h2>Погреб на горном склоне</h2></div><p>Блоки в мембране, лестница и колонна, проверка подсветки и монтаж люка. Всё это происходило, пока на вилле шла отделка.</p></div>
+  <div class="strip" id="strip" tabindex="0" aria-label="Фото со стройки в Хосте, листайте в сторону">
+    <figure style="aspect-ratio:3/4"><img src="media/kh-st1.jpg" alt="Модульные блоки погреба в мембране" loading="lazy"><figcaption>Блоки в мембране</figcaption></figure>
+    <figure style="aspect-ratio:3/4"><img src="media/kh-st2.jpg" alt="Лестница и центральная колонна до отделки" loading="lazy"><figcaption>Лестница и колонна до отделки</figcaption></figure>
+    <figure style="aspect-ratio:3/4"><img src="media/kh-st3.jpg" alt="Проверка подсветки погреба" loading="lazy"><figcaption>Проверяем подсветку</figcaption></figure>
+    <figure style="aspect-ratio:3/4"><img src="media/khosta-build.jpg" alt="Люк в гостиной на этапе отделки, за окном море" loading="lazy"><figcaption>Люк в гостиной на этапе отделки</figcaption></figure>
+    <figure style="aspect-ratio:3/4"><img src="media/kh-open.jpg" alt="Открытый люк в готовой гостиной" loading="lazy"><figcaption>Готово: люк открыт</figcaption></figure>
+  </div>
+</div></section>
 <div class="sea" id="khosta">
   <div class="sea-bg"><video src="media/khosta-sea.mp4" poster="media/khosta-sea-poster.jpg" muted loop playsinline preload="metadata" data-autoplay aria-hidden="true"></video></div>
   <div class="wrap">
@@ -107,11 +125,26 @@ kh+='''<section class="sec" style="padding-top:0"><div class="wrap lid">
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="sec-head"><div><span class="kicker">Читать по теме</span><h2>Погреб в новом доме</h2></div><p>Если дом ещё строится, погреб проще заложить в проект.</p></div>
   <div class="jgrid jgrid-2">'''+art_card(AMAP['pogreb-v-proekte-doma'])+art_card(AMAP['kak-hranit-vino-doma'])+'''</div>
-  <div class="case-next"><span>Другой объект</span><a href="case-mozhaysk.html">Панинотека, Можайск →</a></div>
+  <div class="case-next"><span>Следующий объект</span><a href="case-kaliningrad.html">Люк из четырёх секторов, Калининград →</a></div>
 </div></section>
 '''+CTA
 doc('case-khosta.html','Погреб на вилле в Хосте, Сочи — ПОGREB WINE','Спиральный винный погреб в гостиной частной виллы в Хосте (Сочи) на горном склоне с видом на море: круглый стеклянный люк, белые блоки, дубовые ступени.',kh,'objects.html',
     ld=[crumbs_ld([('index.html','Главная'),('objects.html','Объекты'),('case-khosta.html','Хоста, Сочи')])],img='media/khosta-build.jpg')
+
+
+# ---------- generic case pages ----------
+from cases import CASES, case_card, case_url, gallery_figure
+for i, cs in enumerate(CASES):
+    if cs.get('custom'):
+        continue
+    nxt = CASES[(i + 1) % len(CASES)]
+    body = page_hero('<a href="objects.html">Объекты</a> / ' + cs['city'], cs['title'] + ', ' + cs['city'].split(',')[-1].strip(), cs['lead'], cs['hero'], cs['card_alt'])
+    body += '<section class="sec" style="padding-top:0"><div class="wrap passport"><div><span class="kicker">Об объекте</span><h2>' + cs['kind'] + ', ' + cs['city'] + '</h2><p class="lid-lead">' + cs['short'] + '</p></div><dl class="specs passport-specs">' + ''.join('<div><dt>' + k + '</dt><dd>' + v + '</dd></div>' for k, v in cs['passport']) + '</dl></div></section>\n'
+    body += '<section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><span class="kicker">Фото и видео</span><h2>Как это было</h2></div><p>Листайте в сторону или нажимайте стрелки.</p></div><div class="strip" id="strip" tabindex="0" aria-label="Фото объекта, листайте в сторону">' + ''.join(gallery_figure(*g) for g in cs['gallery']) + '</div></div></section>\n'
+    others = [x for x in CASES if x['slug'] != cs['slug']][:3]
+    body += '<section class="sec" style="padding-top:0"><div class="wrap"><div class="sec-head"><div><span class="kicker">Другие объекты</span><h2>Ещё наши погреба</h2></div><p><a href="objects.html">Все объекты</a></p></div><div class="ogrid">' + ''.join(case_card(x) for x in others) + '</div><div class="case-next"><span>Следующий объект</span><a href="' + case_url(nxt) + '">' + nxt['title'] + ' →</a></div></div></section>\n' + CTA
+    doc(case_url(cs), 'Погреб: ' + cs['title'] + ', ' + cs['city'] + ' — ПОGREB WINE', cs['lead'][:180], body, 'objects.html',
+        ld=[crumbs_ld([('index.html', 'Главная'), ('objects.html', 'Объекты'), (case_url(cs), cs['city'])])], img=cs['hero'])
 
 # ---------- journal index ----------
 j=page_hero('Журнал','Журнал','Отвечаем на вопросы, которые задают перед заказом погреба: сколько стоит, что делать с грунтовыми водами, можно ли поставить погреб в готовый дом и как вообще хранить вино.')
@@ -131,8 +164,10 @@ for a in ARTICLES:
         {"@context":"https://schema.org","@type":"Article","headline":a['title'],"description":a['desc'],"image":SITE+a['img'],"datePublished":DATE_ISO,"dateModified":DATE_ISO,"inLanguage":"ru","author":{"@id":SITE+"#org"},"publisher":{"@id":SITE+"#org"},"mainEntityOfPage":SITE+url}]
     doc(url,a['title']+' — ПОGREB WINE',a['desc'],body,'journal.html',ld=ld,img=a['img'],ogtype='article')
 
+exec(open(os.path.join(BASE,'konstruktor.py'),encoding='utf-8').read())
+
 # ---------- sitemap / robots ----------
-pri={'index.html':'1.0','pogreb.html':'0.9','price.html':'0.9','objects.html':'0.9','contacts.html':'0.8','architects.html':'0.8','journal.html':'0.7'}
+pri={'index.html':'1.0','pogreb.html':'0.9','price.html':'0.9','objects.html':'0.9','contacts.html':'0.8','architects.html':'0.8','journal.html':'0.7','konstruktor.html':'0.8'}
 sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
 for f in dict.fromkeys(PAGES):
     sm+=f'  <url><loc>{SITE}{"" if f=="index.html" else f}</loc><lastmod>{DATE_ISO}</lastmod><priority>{pri.get(f,"0.6")}</priority></url>\n'

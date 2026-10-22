@@ -167,6 +167,12 @@
     d.querySelector('.ans').style.overflow = 'hidden';
   });
 
+  /* сборка из конструктора попадает в поле пожеланий */
+  try {
+    var cfgQ = new URLSearchParams(location.search).get('cfg'), fMsg = document.getElementById('f-msg');
+    if (cfgQ && fMsg && !fMsg.value) fMsg.value = cfgQ;
+  } catch (e) {}
+
   /* toast + copy */
   var toast = document.getElementById('toast'), tt;
   function say(msg){ toast.textContent = msg; toast.classList.add('is-on'); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('is-on'); }, 2200); }

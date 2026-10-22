@@ -1,6 +1,7 @@
 import json, re, os, sys
 BASE=os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0,BASE); from etz_svg import etz_svg
+from cases import CASES, case_card, case_url, gallery_figure, case_catalog
 SEC_DIR=os.path.join(BASE,'sections')
 S={f[:-5]:open(os.path.join(SEC_DIR,f),encoding='utf-8').read() for f in os.listdir(SEC_DIR) if f.endswith('.html')}
 D=open(os.path.join(BASE,'diagram.svg'),encoding='utf-8').read()
@@ -11,7 +12,7 @@ FONTS='''<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Golos+Text:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="style.css">'''
-NAV=[('about.html','О погребе'),('pogreb.html','Устройство'),('etazherki.html','Этажерки'),('objects.html','Объекты'),('price.html','Стоимость'),('journal.html','Журнал'),('architects.html','Архитекторам'),('contacts.html','Контакты')]
+NAV=[('about.html','О погребе'),('pogreb.html','Устройство'),('etazherki.html','Этажерки'),('objects.html','Объекты'),('price.html','Стоимость'),('konstruktor.html','Конструктор'),('architects.html','Архитекторам'),('contacts.html','Контакты')]
 def header(active):
     links=''.join(f'<a href="{h}"{" class=\"is-active\" aria-current=\"page\"" if h==active else ""}>{n}</a>' for h,n in NAV)
     return f'''<div class="grain" aria-hidden="true"></div>
@@ -58,7 +59,7 @@ def strip_head(sec):
     # remove the sec-head block (first <div class="sec-head">...</div>\n      </div>) — used when page hero already states it
     return sec
 SITE='https://pogreb-wine.ru/'
-ORG={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":SITE+"#org","name":"ПОGREB WINE","alternateName":["Погреб Вайн","Pogreb Wine","ПОГРЕБ WINE","Погреб Wine"],"url":SITE,"logo":SITE+"media/top-hatch.jpg","image":SITE+"media/hatch-open.jpg","description":"Спиральные винные погреба под полом дома со стеклянным автоматическим люком, автоматические винные этажерки. Производство и монтаж по всей России и в Казахстане.","telephone":["+7 917 205-70-00","+7 927 157-58-88"],"address":{"@type":"PostalAddress","streetAddress":"ул. Кособокова, 40","addressLocality":"Саратов","addressRegion":"Саратовская область","addressCountry":"RU"},"areaServed":["Москва","Московская область","Санкт-Петербург","Сочи","Калининград","Екатеринбург","Саратов","Ростов-на-Дону","Россия","Казахстан"],"founder":{"@type":"Person","name":"Роман Голубев","jobTitle":"Директор"},"sameAs":["https://t.me/pogrebwine"],"priceRange":"от 3 500 000 ₽"}
+ORG={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":SITE+"#org","name":"ПОGREB WINE","alternateName":["Погреб Вайн","Pogreb Wine","ПОГРЕБ WINE","Погреб Wine"],"url":SITE,"logo":SITE+"media/top-hatch.jpg","image":SITE+"media/hatch-open.jpg","description":"Спиральные винные погреба под полом дома со стеклянным автоматическим люком, автоматические винные этажерки. Производство и монтаж по всей России.","telephone":["+7 917 205-70-00","+7 927 157-58-88"],"address":{"@type":"PostalAddress","streetAddress":"ул. Кособокова, 40","addressLocality":"Саратов","addressRegion":"Саратовская область","addressCountry":"RU"},"areaServed":["Москва","Московская область","Санкт-Петербург","Сочи","Калининград","Екатеринбург","Саратов","Ростов-на-Дону","Россия"],"founder":{"@type":"Person","name":"Роман Голубев","jobTitle":"Директор"},"sameAs":["https://t.me/pogrebwine"],"priceRange":"от 3 500 000 ₽"}
 PAGES=[]
 def crumbs_ld(items):
     return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":SITE+(h if h!='index.html' else '')} for i,(h,n) in enumerate(items)]}
@@ -81,18 +82,18 @@ def faq_ld(sec):
     return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q.strip(),"acceptedAnswer":{"@type":"Answer","text":re.sub(r'<[^>]+>',' ',a).strip()}} for q,a in qs]}
 # ---------- index ----------
 tease='''<section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">Объекты</span><h2>Погреба, которые уже стоят</h2></div><p>Москва и Подмосковье, Сочи, Санкт-Петербург, Калининград, Екатеринбург, Саратов, Ростов-на-Дону, Казахстан.</p></div>
-  <div class="tease">
-    <a class="tcard" href="case-mozhaysk.html"><img src="media/hatch-open.jpg" alt="Приоткрытый люк погреба в ресторане Панинотека"><div class="tcard-body"><div class="tcard-meta">Можайск, ресторан</div><h3>Панинотека</h3><span class="tcard-go"><i></i>Смотреть объект</span></div></a>
-    <a class="tcard" href="case-khosta.html"><img src="media/khosta-build.jpg" alt="Люк погреба на вилле в Хосте, за окном море"><div class="tcard-body"><div class="tcard-meta">Хоста, Сочи, вилла</div><h3>Дом над морем</h3><span class="tcard-go"><i></i>Смотреть объект</span></div></a>
-  </div>
+  <div class="sec-head"><div><span class="kicker">Объекты</span><h2>Погреба, которые уже стоят</h2></div><p>Москва и Подмосковье, Сочи, Санкт-Петербург, Калининград, Екатеринбург, Саратов, Ростов-на-Дону.</p></div>
+  <div class="ogrid ogrid-4">'''+''.join(case_card(x) for x in CASES[:4])+'''</div>
+  <div class="case-more"><a class="btn btn-line" href="objects.html">Все объекты</a></div>
 </div></section>
 '''
 arch_short=S['ARCHITECTS'].replace('<section class="band" id="architects">','<section class="band band-short">').replace('href="#contact" data-scroll data-role="architect">Обсудить партнёрство','href="architects.html">Условия для архитекторов')
 INSIDE='''<section class="inside" aria-label="Внутри погреба"><div class="inside-media"><video src="media/inside-descent.mp4" poster="media/inside-descent-poster.jpg" muted loop playsinline preload="metadata" aria-label="Спуск по лестнице мимо ниш с вином и шампанским"></video></div><div class="wrap inside-copy"><h2>Ниши для бутылок, ящиков и шампанского по всей спирали</h2><p>Каждая полка под рукой, пока спускаетесь по лестнице. Подсветка 4000 К показывает этикетки и не греет вино.</p></div></section>\n'''
-ETZ_TEASE='''<section class="sec" style="padding-top:0"><div class="wrap etz-tease"><div class="etz-pair"><div class="etz-scheme">'''+etz_svg()+'''<span class="etz-cap">Схема</span></div><div class="etz-video"><video src="media/etz-lift.mp4" poster="media/etz-lift-poster.jpg" muted loop playsinline preload="metadata" aria-label="Этажерка из нержавеющей стали поднимается из пола с напитками на трёх ярусах и опускается обратно"></video><span class="etz-cap">Видео</span></div></div><div><span class="kicker">Ещё мы делаем</span><h2>Этажерка, которая поднимается из пола</h2><p class="lid-lead">Три яруса из нержавеющей стали выезжают из пола одним касанием и показывают коллекцию. Ставится в гостиной, винной комнате, ресторане или у зоны барбекю.</p><div class="hero-actions"><a class="btn btn-line" href="etazherki.html">Подробнее об этажерках</a></div></div></div></section>\n'''
+ETZ_TEASE='''<section class="sec" style="padding-top:0"><div class="wrap etz-tease"><div class="etz-pair"><div class="etz-scheme">'''+etz_svg()+'''<span class="etz-cap">Схема</span></div><div class="etz-video"><video src="media/etz-lift.mp4" poster="media/etz-lift-poster.jpg" muted loop playsinline preload="metadata" aria-label="Этажерка из нержавеющей стали поднимается из пола с напитками на трёх ярусах и опускается обратно"></video><span class="etz-cap">Видео</span></div></div><div><span class="kicker">Ещё мы делаем</span><h2>Этажерка, которая поднимается из пола</h2><p class="lid-lead">Три яруса из нержавеющей стали выезжают из пола одним касанием и показывают коллекцию. Ставится в гостиной, винной комнате, ресторане или у зоны барбекю. А в бочке на колёсиках её можно выкатить даже на улицу.</p><div class="hero-actions"><a class="btn btn-line" href="etazherki.html">Подробнее об этажерках</a></div></div></div></section>\n'''
 ANAT_IDX=S['ANATOMY'].replace('{{DIAGRAM}}',D).replace(' style="padding-top:0"','')+'<div class="wrap anat-more"><a class="btn btn-line" href="pogreb.html">Подробнее об устройстве</a></div>\n'
-idx=fix(S['HERO'])+S['IRIS']+S['COMPARE']+ANAT_IDX+INSIDE+tease+ETZ_TEASE+arch_short+CTA
+KZ_TEASE='''<section class="sec" style="padding-top:0"><div class="wrap kz-tease"><a class="kz-tease-media" href="konstruktor.html" aria-label="Открыть конструктор погреба"><img src="media/k-lift.jpg" alt="Круглый стеклянный люк поднят и повёрнут в сторону, под ним подсвеченная лестница" loading="lazy"><span class="kz-tease-tag">Онлайн</span></a><div><span class="kicker">Конструктор</span><h2>Соберите свой погреб за пару минут</h2><p class="lid-lead">Выберите форму люка, механизм, цвет стекла, глубину и дерево ступеней. Рисунок меняется вместе с выбором, а люк открывается прямо на экране. Готовую сборку отправьте нам, и мы назовём цену.</p><div class="hero-actions"><a class="btn btn-wine" href="konstruktor.html">Открыть конструктор</a></div></div></div></section>
+'''
+idx=fix(S['HERO'])+S['IRIS']+S['COMPARE']+ANAT_IDX+INSIDE+tease+KZ_TEASE+ETZ_TEASE+arch_short+CTA
 doc('index.html','ПОGREB WINE','Спиральные винные погреба под полом дома со стеклянным автоматическим люком. От 3,5 млн ₽, 800–3 500 бутылок, монтаж до 10 дней.',idx,'index.html',first=True,ld=PROD_LD)
 
 # ---------- pogreb ----------
@@ -123,7 +124,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
     <li><span class="tl-y">Древний Рим</span><div><h3>Лестница в подвал акведука</h3><p>Винтовая лестница, уходящая в прохладный подвал древнеримского акведука, стала прообразом погреба.</p></div></li>
     <li><span class="tl-y">1977</span><div><h3>Первый погреб во Франции</h3><p>Француз Жорж Арнуа увидел эту лестницу и решил повторить её у себя дома. Он вырыл яму диаметром 2 метра, обложил её кирпичом, поставил деревянную винтовую лестницу и полки для бутылок.</p></div></li>
     <li><span class="tl-y">Позже</span><div><h3>Камень вместо дерева</h3><p>Недолговечные деревянные конструкции заменили модульными блоками из искусственного камня. Так появились спиральные погреба, которые разошлись по Европе.</p></div></li>
-    <li><span class="tl-y">Сегодня</span><div><h3>ПОGREB WINE</h3><p>Мы ставим спиральные погреба по всей России и в Казахстане, сами делаем автоматические стеклянные люки и выдвижные этажерки. В 2024 году показывали люк на выставке «Виноиндустрия» в Санкт-Петербурге.</p></div></li>
+    <li><span class="tl-y">Сегодня</span><div><h3>ПОGREB WINE</h3><p>Мы ставим спиральные погреба по всей России, сами делаем автоматические стеклянные люки и выдвижные этажерки. В 2024 году показывали люк на выставке «Виноиндустрия» в Санкт-Петербурге.</p></div></li>
   </ol>
 </div></section>
 <section class="inside" aria-label="Внутри погреба"><div class="inside-media"><video src="media/inside-pan.mp4" poster="media/inside-pan-poster.jpg" muted loop playsinline preload="metadata" aria-label="Ниши с бутылками и ящиками внутри погреба"></video></div><div class="wrap inside-copy"><h2>Почему земля хранит вино лучше любого шкафа</h2><p>На глубине грунт держит ровную температуру круглый год, без скачков и без электричества. Внизу прохладнее, наверху теплее, поэтому белые и игристые вина лежат ниже, а красные выше. В погребе темно, тихо и нет вибраций, которые мешают вину созревать.</p></div></section>
@@ -151,7 +152,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
   <div>
     <span class="kicker">О компании</span>
     <h2>Вековые традиции и современная инженерия</h2>
-    <p class="lid-lead">ПОGREB WINE работает из Саратова и ставит погреба по всей стране: Москва и Подмосковье, Санкт-Петербург, Сочи, Калининград, Екатеринбург, Ростов-на-Дону, Казахстан. Люки делаем на собственном производстве и сами везём их на объект на специальном прицепе. Монтаж ведёт наша команда.</p>
+    <p class="lid-lead">ПОGREB WINE работает из Саратова и ставит погреба по всей стране: Москва и Подмосковье, Санкт-Петербург, Сочи, Калининград, Екатеринбург, Ростов-на-Дону. Люки делаем на собственном производстве и сами везём их на объект на специальном прицепе. Монтаж ведёт наша команда.</p>
     <p class="lid-lead" style="margin-top:16px">Каждый погреб для нас отдельный проект, сделанный с заботой о коллекции и вниманием к образу жизни владельца. Мы уверены, что хорошее вино заслуживает лучшего места.</p>
     <div class="hero-actions"><a class="btn btn-wine" href="contacts.html">Обсудить ваш погреб</a><a class="btn btn-line" href="objects.html">Смотреть объекты</a></div>
   </div>
@@ -186,39 +187,58 @@ e+='''<section class="sec" style="padding-top:0"><div class="wrap lid lid-etz">
   </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="beer etz-barrel-card"><div><h4>Вариант в отдельно стоящем корпусе</h4><p>Та же вращающаяся этажерка с подсветкой в корпусе-бочке. Подходит для пива и напитков на террасе, в баре или комнате отдыха, если встроить её в пол нельзя.</p></div><a class="btn btn-line" href="contacts.html">Узнать подробнее</a></div>
+  <div class="barrel">
+    <div class="barrel-text">
+      <span class="kicker">Этажерка в бочке</span>
+      <h2>Выкатили на террасу, нажали, и бар готов</h2>
+      <p class="lid-lead">Та же автоматическая этажерка, только встроена в стальную бочку. Пол вскрывать не нужно: бочка стоит на колёсиках, её можно выкатить на террасу, к бассейну, в беседку или в бар и поставить там, где сейчас нужнее.</p>
+      <ul class="barrel-list">
+        <li><b>Поднимается из бочки</b> вместе с деревянной столешницей, внутри горит подсветка</li>
+        <li><b>На колёсиках</b>: катается по дому и участку, ставится на улице</li>
+        <li><b>Те же параметры</b>, что у встроенной этажерки: Ø 250 или 400 мм, от 12 до 25 бутылок</li>
+        <li><b>Для вина, пива и напитков</b>: на вечеринке, в баре, в зоне барбекю</li>
+      </ul>
+      <div class="hero-actions"><a class="btn btn-wine" href="contacts.html">Узнать цену бочки</a></div>
+    </div>
+    <div class="barrel-media">
+      <figure><video src="media/etz-barrel-night.mp4" poster="media/etz-barrel-night-poster.jpg" muted loop playsinline preload="metadata" aria-label="Этажерка поднимается из чёрной бочки на летней веранде ресторана вечером"></video><figcaption>Летняя веранда ресторана, вечер</figcaption></figure>
+      <figure><video src="media/etz-barrel.mp4" poster="media/etz-barrel-poster.jpg" muted loop playsinline preload="metadata" aria-label="Бочка с деревянной столешницей, из неё поднимается этажерка с напитками"></video><figcaption>В комнате отдыха</figcaption></figure>
+    </div>
+  </div>
 </div></section>
 '''+CTA
 doc('etazherki.html','Этажерки, ПОGREB WINE','Автоматическая винная этажерка из нержавеющей стали, которая поднимается из пола: Ø250 мм на 12–15 бутылок, Ø400 мм на 15–25 бутылок, от 250 000 ₽.',e,'etazherki.html',ld=[PROD_LD[1],crumbs_ld([('index.html','Главная'),('etazherki.html','Этажерки')])])
 
 # ---------- objects ----------
-c=S['CASES']
-c=c.replace('<section id="cases" style="padding-top:clamp(40px,6vw,80px)">','<section id="cases">')
-# drop cases sec-head (page hero replaces it)
-c=re.sub(r'\s*<div class="sec-head">.*?</p>\s*</div>\s*\n','\n',c,count=1,flags=re.S)
-c=c.replace('</ol>\n      </div>\n    </div>','</ol>\n      </div>\n      <div class="case-more"><a class="btn btn-line" href="case-mozhaysk.html">Подробнее: этапы и фото со стройки</a></div>\n    </div>',1)
-c=c.replace('светится изнутри.</p>','светится изнутри.</p><div class="case-more"><a class="btn btn-line" href="case-khosta.html">Подробнее об объекте</a></div>',1)
-c=c.replace('<div class="case-title">','<div class="case-title" id="paninoteka">',1).replace('<div class="sea">','<div class="sea" id="khosta">',1)
-o=page_hero('Объекты','Погреба, которые уже стоят','Рестораны, частные дома и виллы от Калининграда до Сочи и Казахстана. Два объекта подробно, с фото и тем, как мы их ставили.','media/hall-hatch.jpg','Люк погреба в зале ресторана Панинотека')
-more_cases='''<section class="sec"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">Ещё объекты</span><h2>Калининград и Екатеринбург</h2></div><p>Частные дома, где погреб ставили во время стройки.</p></div>
-  <div class="mini-cases">
-    <figure class="mini"><div class="mini-media"><video src="media/kaliningrad.mp4" poster="media/kaliningrad-poster.jpg" muted loop playsinline preload="metadata" aria-label="Люк из четырёх стеклянных секторов в Калининграде"></video></div><figcaption><b>Калининград</b>Частный дом. Круглый люк из четырёх стеклянных секторов в белом интерьере.</figcaption></figure>
-    <figure class="mini"><div class="mini-media"><img src="media/rostov-hatch.jpg" alt="Люк погреба в Екатеринбурге на этапе монтажа"></div><figcaption><b>Екатеринбург</b>Частный дом. Погреб с кирпичной отделкой, монтаж люка в перекрытие.</figcaption></figure>
+o=page_hero('Объекты','Погреба, которые уже стоят','Рестораны, частные дома и виллы от Калининграда до Сочи. У каждого объекта своя страница с фото и видео: как ставили и что получилось.','media/hall-hatch.jpg','Люк погреба в зале ресторана Панинотека')
+o+='<section class="sec" style="padding-top:0"><div class="wrap">'+case_catalog(CASES)+'</div></section>\n'
+o+='''<section class="sec" style="padding-top:0"><div class="wrap">
+  <div class="geo">
+    <h4>Где стоят наши погреба</h4>
+    <div>
+      <ul class="cities"><li>Москва</li><li>Подмосковье</li><li>Санкт-Петербург</li><li>Сочи</li><li>Калининград</li><li>Екатеринбург</li><li>Саратов</li><li>Ростов-на-Дону</li></ul>
+      <p class="geo-note">Среди объектов есть музей-усадьба «Белая Дача» с прямоугольным люком. В 2024 году мы показывали автоматический люк на выставке «Виноиндустрия» в Санкт-Петербурге.</p>
+    </div>
   </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">На стройке</span><h2>Как это выглядит до отделки</h2></div><p>Рама люка, перекрытие и стекло. Так погреб выглядит, пока его не закрыли полом. Как ставили погреб в Можайске, смотрите <a href="case-mozhaysk.html">на странице объекта</a>.</p></div>
+  <div class="sec-head"><div><span class="kicker">На стройке</span><h2>Как это выглядит до отделки</h2></div><p>Котлован, модульные блоки, лестница, рама люка и стекло. Так погреб выглядит, пока его не закрыли полом.</p></div>
   <div class="strip" id="strip2" tabindex="0" aria-label="Фото со стройки, листайте в сторону">
-    <figure style="aspect-ratio:3/4"><img src="media/kaliningrad-mount.jpg" alt="Монтаж рамы люка в Калининграде"><figcaption>Рама люка, Калининград</figcaption></figure>
-    <figure style="aspect-ratio:3/4"><img src="media/rostov-mount.jpg" alt="Погреб в Екатеринбурге во время стройки"><figcaption>Люк в перекрытии, Екатеринбург</figcaption></figure>
-    <figure style="aspect-ratio:3/4"><img src="media/mount-glass.jpg" alt="Установка стекла прямоугольного люка на присосках"><figcaption>Ставим стекло люка</figcaption></figure>
-    <figure style="aspect-ratio:3/4"><img src="media/mount-glass-done.jpg" alt="Прямоугольный люк смонтирован в пол перед отделкой"><figcaption>Люк в полу, перед отделкой</figcaption></figure>
-  </div>
+'''+''.join('    '+gallery_figure(f,cap)+'\n' for f,cap in [
+  ('media/ostr-2.jpg','Бетонный котлован, Подмосковье'),
+  ('media/kld-1.jpg','Блоки в котловане, Калининград'),
+  ('media/kh-st1.jpg','Блоки в мембране, Хоста'),
+  ('media/ostr-3.jpg','Блоки и лестница, Подмосковье'),
+  ('media/kh-st2.jpg','Лестница до отделки, Хоста'),
+  ('media/ekb-1.jpg','Рама люка, Екатеринбург'),
+  ('media/kaliningrad-mount.jpg','Рама люка, Калининград'),
+  ('media/kh-st3.jpg','Проверка подсветки, Хоста'),
+  ('media/mount-glass.jpg','Ставим стекло люка, Подмосковье'),
+  ('media/ostr-4.jpg','Стекло в черновом полу, Подмосковье'),
+])+'''  </div>
 </div></section>
-'''
-o+=c+more_cases+CTA
-doc('objects.html','Объекты, ПОGREB WINE','Реализованные винные погреба: Панинотека в Можайске, вилла в Хосте, Белая Дача и другие объекты.',o,'objects.html',ld=[crumbs_ld([('index.html','Главная'),('objects.html','Объекты')])])
+'''+CTA
+doc('objects.html','Объекты, ПОGREB WINE','Реализованные винные погреба: Панинотека в Можайске, вилла в Хосте, Калининград, Екатеринбург, Подмосковье. Фото и видео монтажа.',o,'objects.html',ld=[crumbs_ld([('index.html','Главная'),('objects.html','Объекты')])])
 
 # ---------- price ----------
 pk=re.sub(r'\s*<div class="sec-head">.*?</p>\s*</div>\s*\n','\n',S['PACKAGE'],count=1,flags=re.S).replace(' class="sec" id="pack"',' class="sec" id="pack" style="padding-top:0"')
