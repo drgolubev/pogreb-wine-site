@@ -254,7 +254,7 @@
   function fmt(d) { return (Math.round(d * 100) / 100).toString().replace('.', ','); }
 
   /* ---------- отрисовка ---------- */
-  var cur = null, shownDepth = null, raf = 0, open = false;
+  var cur = null, shownDepth = null, raf = 0, open = false, openT = 0;
   function render(depth) {
     var c = cur;
     pit.innerHTML = ''; pit.appendChild(drawPit(c, depth));
@@ -299,6 +299,15 @@
   function update(changed) {
     var prev = cur;
     cur = readForm();
+    // смена механизма или формы: старый люк мгновенно закрываем без анимации,
+    // иначе одновременно играют закрытие старого механизма и открытие нового
+    var swap = changed === 'mech' || changed === 'shape';
+    if (swap) {
+      clearTimeout(openT);
+      stage.classList.add('kz-instant');
+      stage.classList.remove('is-open');
+      open = false;
+    }
     stage.dataset.shape = cur.shape;
     stage.dataset.mech = cur.mech;
     stage.style.setProperty('--kz-glass', GLASS[cur.glass]);
@@ -328,15 +337,18 @@
     if (cur.extra.length) q.set('extra', cur.extra.join(','));
     try { history.replaceState(null, '', '?' + q.toString()); } catch (e) {}
     // смена механизма: сразу показываем, как он открывается
-    if (changed === 'mech' || changed === 'shape') {
-      if (open) { setOpen(false); setTimeout(function () { setOpen(true); }, 650); } else setOpen(true);
+    if (swap) {
+      void stage.offsetWidth;
+      stage.classList.remove('kz-instant');
+      setOpen(false);
+      openT = setTimeout(function () { setOpen(true); }, 120);
     }
     if (changed === 'depth' || !prev) animateDepth(cur.depthN); else render(shownDepth);
     pit.classList.remove('kz-fade'); void pit.offsetWidth; pit.classList.add('kz-fade');
   }
 
   form.addEventListener('change', function (e) { update(e.target.name); });
-  document.getElementById('kzOpen').addEventListener('click', function () { setOpen(!open); });
+  document.getElementById('kzOpen').addEventListener('click', function () { clearTimeout(openT); setOpen(!open); });
   stage.querySelectorAll('.kz-tabs button').forEach(function (b) {
     b.addEventListener('click', function () {
       stage.querySelectorAll('.kz-tabs button').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
@@ -381,5 +393,5 @@
 
   applyParams();
   update();
-  setTimeout(function () { setOpen(true); }, 900);
+  openT = setTimeout(function () { setOpen(true); }, 900);
 })();

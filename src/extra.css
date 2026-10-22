@@ -379,3 +379,5 @@ a.beer:hover{border-color:var(--claret)}
 .kz-lb p{margin:12px 0 0;color:var(--ash);font-size:var(--step--1);text-align:center}
 .kz-lb-x{position:absolute;top:-52px;right:0;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:rgba(7,4,5,.6);color:var(--bone);font-size:26px;line-height:1;cursor:pointer}
 html.kz-lock{overflow:hidden}
+
+.kz-stage.kz-instant .kz-glass,.kz-stage.kz-instant .kz-g{transition:none!important}
