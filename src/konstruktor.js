@@ -15,10 +15,13 @@
     graphite: 'rgba(14,16,20,.66)', blue: 'rgba(24,62,116,.52)'
   };
   var MECH_PHOTO = {
-    lift: ['media/k-lift.jpg', 'Стекло поднимается и поворачивается в сторону'],
+    act: ['media/hero-hatch-open-poster.jpg', 'Люк на актуаторе: половина стекла прокручивается под вторую'],
     hinge: ['media/k-hinge.jpg', 'Половина стекла откинута на обратном шарнире'],
     act: ['media/k-act.jpg', 'Стекло приподнято актуатором'],
     rect: ['media/hatch-lift-poster.jpg', 'Прямоугольный люк на подъёмном приводе']
+  };
+  var MECH_VIDEO = {
+    act: ['media/hero-hatch-open.mp4', 'Актуатор: стекло приподнимается, и половина люка прокручивается под вторую']
   };
   var CTRL_PHOTO = {
     panel: 'media/k-panel.jpg', remote: 'media/k-remote.jpg', finger: 'media/k-finger.jpg', smart: 'media/k-panel.jpg'
@@ -219,16 +222,17 @@
     var gcol = GLASS[c.glass], gx = sx - 6, gw = sw + 12;
     var glass = el('g', { 'class': 'kz-cut-glass' }, svg);
     var tr = '';
-    if (open) {
-      if (c.mech === 'lift') tr = 'translate(150 -70)';
-      else if (c.mech === 'act') tr = 'rotate(32 ' + (gx + gw) + ' ' + fy + ')';
-    }
-    if (c.mech === 'hinge' && open) {
+    if (c.mech === 'act' && open) {
+      // половина приподнялась на пару миллиметров, вторая прокрутилась и ушла под неё
+      el('rect', { x: gx + gw / 2, y: fy - 3, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5, opacity: .85 }, glass);
+      el('rect', { x: gx + gw / 2, y: fy - 9, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5 }, glass);
+      var arr = el('path', { d: 'M' + (gx + gw * .2) + ' ' + (fy - 22) + 'Q' + (gx + gw / 2) + ' ' + (fy - 46) + ' ' + (gx + gw * .8) + ' ' + (fy - 22), fill: 'none', stroke: '#e8b45a', 'stroke-width': 1.5, 'stroke-dasharray': '4 4' }, glass);
+      el('path', { d: 'M' + (gx + gw * .8 - 7) + ' ' + (fy - 29) + 'l7 7l-9 2', fill: 'none', stroke: '#e8b45a', 'stroke-width': 1.5 }, glass);
+    } else if (c.mech === 'hinge' && open) {
       el('rect', { x: gx + gw / 2, y: fy - 5, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5 }, glass);
       el('rect', { x: gx, y: fy - 5, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5, transform: 'rotate(100 ' + (gx + gw / 2) + ' ' + fy + ')' }, glass);
     } else {
       el('rect', { x: gx, y: fy - 5, width: gw, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5, transform: tr }, glass);
-      if (open && c.mech === 'lift') el('rect', { x: gx + gw + 40, y: fy - 66, width: 6, height: 66, fill: '#9a948e' }, glass);
     }
     // человек для масштаба
     var px = 250, ph = 1.8 * S;
@@ -299,7 +303,11 @@
     stage.dataset.mech = cur.mech;
     stage.style.setProperty('--kz-glass', GLASS[cur.glass]);
     // фото вживую
-    var mp = cur.shape === 'rect' && cur.mech === 'lift' ? MECH_PHOTO.rect : MECH_PHOTO[cur.mech];
+    var mp = MECH_PHOTO[cur.mech];
+    var fig = document.getElementById('kzLiveMechFig'), hasV = !!MECH_VIDEO[cur.mech];
+    fig.classList.toggle('has-video', hasV);
+    if (hasV) { fig.setAttribute('role', 'button'); fig.tabIndex = 0; } else { fig.removeAttribute('role'); fig.removeAttribute('tabindex'); }
+    document.getElementById('kzLiveMechK').textContent = hasV ? 'Механизм вживую · смотреть видео' : 'Механизм вживую · видео скоро';
     var mi = document.getElementById('kzLiveMech');
     if (mi.getAttribute('src') !== mp[0]) { mi.src = mp[0]; }
     mi.alt = mp[1];
@@ -348,6 +356,28 @@
     var t = document.getElementById('toast'); if (!t) return;
     t.textContent = msg; t.classList.add('is-on'); setTimeout(function () { t.classList.remove('is-on'); }, 2200);
   }
+
+  /* видео механизма во весь экран */
+  var lb = document.getElementById('kzLb'), lbv = document.getElementById('kzLbV'), lastFocus = null;
+  function openLb() {
+    var v = MECH_VIDEO[cur.mech]; if (!v) return;
+    lastFocus = document.activeElement;
+    lbv.poster = v[0].replace('.mp4', '-poster.jpg'); lbv.src = v[0]; document.getElementById('kzLbCap').textContent = v[1];
+    lb.hidden = false; document.documentElement.classList.add('kz-lock');
+    var pr = lbv.play(); if (pr && pr.catch) pr.catch(function () {});
+    document.getElementById('kzLbX').focus();
+  }
+  function closeLb() {
+    lb.hidden = true; lbv.pause(); lbv.removeAttribute('src'); lbv.load();
+    document.documentElement.classList.remove('kz-lock');
+    if (lastFocus) lastFocus.focus();
+  }
+  var mfig = document.getElementById('kzLiveMechFig');
+  mfig.addEventListener('click', function () { if (mfig.classList.contains('has-video')) openLb(); });
+  mfig.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && mfig.classList.contains('has-video')) { e.preventDefault(); openLb(); } });
+  document.getElementById('kzLbX').addEventListener('click', closeLb);
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) closeLb(); });
 
   applyParams();
   update();

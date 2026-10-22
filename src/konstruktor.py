@@ -8,10 +8,9 @@ KZ_STEPS = [
    ('oval', 'Овальный', 'Вытянутый, для просторной гостиной', ''),
    ('rect', 'Прямоугольный', 'Под плитку и строгие интерьеры', ''),
  ]),
- ('mech', 'Как открывается люк', 'Все три механизма автоматические', 'radio', [
-   ('lift', 'Подъём с поворотом', 'Стекло поднимается и отъезжает в сторону', ''),
-   ('hinge', 'Обратный шарнир', 'Половина стекла откидывается на петле', ''),
-   ('act', 'Актуатор', 'Стекло приподнимается на приводе, как крышка', ''),
+ ('mech', 'Как открывается люк', 'Оба механизма автоматические', 'radio', [
+   ('act', 'Актуатор', 'Стекло приподнимается на пару миллиметров, половина прокручивается под вторую', ''),
+   ('hinge', 'Обратный шарнир', 'Половина стекла откидывается на петле и встаёт', ''),
  ]),
  ('glass', 'Стекло', 'Закалённый триплекс, по нему можно ходить', 'swatch', [
    ('clear', 'Прозрачное', 'Видно всё до последней ступени', '#cfe0e4'),
@@ -45,7 +44,7 @@ KZ_STEPS = [
    ('barrel', 'Этажерка в бочке', 'На колёсиках, можно выкатить на улицу', ''),
  ]),
 ]
-KZ_DEFAULT = {'shape': 'round', 'mech': 'lift', 'glass': 'bronze', 'depth': '2.75', 'wood': 'oak', 'ctrl': 'panel'}
+KZ_DEFAULT = {'shape': 'round', 'mech': 'act', 'glass': 'bronze', 'depth': '2.75', 'wood': 'oak', 'ctrl': 'panel'}
 
 
 def kz_step(i, step):
@@ -93,7 +92,7 @@ kz += '''<section class="sec kz-sec" style="padding-top:0"><div class="wrap kz-g
       </div>
     </div>
     <div class="kz-live">
-      <figure class="kz-live-card"><img id="kzLiveMech" src="media/k-lift.jpg" alt="" loading="lazy"><figcaption><span>Механизм вживую</span><b id="kzLiveMechT">Подъём с поворотом</b></figcaption></figure>
+      <figure class="kz-live-card kz-live-mech" id="kzLiveMechFig"><img id="kzLiveMech" src="media/hero-hatch-open-poster.jpg" alt="" loading="lazy"><span class="kz-play" aria-hidden="true"></span><figcaption><span id="kzLiveMechK">Механизм вживую · смотреть видео</span><b id="kzLiveMechT">Актуатор</b></figcaption></figure>
       <figure class="kz-live-card"><img id="kzLiveCtrl" src="media/k-panel.jpg" alt="" loading="lazy"><figcaption><span>Чем открывать</span><b id="kzLiveCtrlT">Сенсорная кнопка</b></figcaption></figure>
     </div>
   </div>
@@ -107,8 +106,9 @@ kz += '''<section class="sec kz-sec" style="padding-top:0"><div class="wrap kz-g
     </div>
   </form>
 </div></section>
+<div class="kz-lb" id="kzLb" hidden role="dialog" aria-modal="true" aria-label="Видео механизма"><div class="kz-lb-in"><button type="button" class="kz-lb-x" id="kzLbX" aria-label="Закрыть">×</button><video id="kzLbV" playsinline muted loop controls></video><p id="kzLbCap"></p></div></div>
 <script src="konstruktor.js"></script>
 ''' + CTA
 doc('konstruktor.html', 'Конструктор винного погреба онлайн — ПОGREB WINE',
     'Соберите спиральный винный погреб онлайн: форма и механизм люка, цвет стекла, глубина, дерево ступеней, управление и умный дом. Рисунок меняется вместе с выбором.',
-    kz, 'konstruktor.html', ld=[crumbs_ld([('index.html', 'Главная'), ('konstruktor.html', 'Конструктор')])], img='media/k-lift.jpg')
+    kz, 'konstruktor.html', ld=[crumbs_ld([('index.html', 'Главная'), ('konstruktor.html', 'Конструктор')])], img='media/hero-hatch-open-poster.jpg')
