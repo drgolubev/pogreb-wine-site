@@ -1,4 +1,7 @@
 (function(){
+  /* always open a new page at the top (also inside preview frames) */
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch(e) {}
+  if (!location.hash) { window.scrollTo(0, 0); try { document.documentElement.scrollIntoView({ block: 'start' }); } catch(e) {} }
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
   var lenis = null;
@@ -128,6 +131,21 @@
     strip.addEventListener('pointerup', up); strip.addEventListener('pointercancel', up);
     strip.addEventListener('wheel', function(e){ if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) e.stopPropagation(); }, { passive: true });
     strip.setAttribute('data-lenis-prevent-horizontal', '');
+    var items = strip.querySelectorAll('figure');
+    if (items.length > 1) {
+      var nav = document.createElement('div'); nav.className = 'strip-nav';
+      nav.innerHTML = '<button type="button" class="strip-btn" aria-label="Предыдущее фото">←</button><span class="strip-count"><b>1</b> / ' + items.length + ' фото</span><button type="button" class="strip-btn" aria-label="Следующее фото">→</button>';
+      strip.parentNode.insertBefore(nav, strip.nextSibling);
+      var hint = nav.nextElementSibling; if (hint && hint.classList.contains('strip-hint')) hint.style.display = 'none';
+      var btns = nav.querySelectorAll('button'), cur = nav.querySelector('b');
+      var idx = function(){ var best = 0, d = 1e9; for (var i = 0; i < items.length; i++) { var x = Math.abs(items[i].offsetLeft - strip.offsetLeft - strip.scrollLeft); if (x < d) { d = x; best = i; } } return best; };
+      var go = function(k){ var i = Math.max(0, Math.min(items.length - 1, idx() + k)); strip.scrollTo({ left: items[i].offsetLeft - strip.offsetLeft, behavior: reduce ? 'auto' : 'smooth' }); };
+      btns[0].addEventListener('click', function(){ go(-1); });
+      btns[1].addEventListener('click', function(){ go(1); });
+      var upd = function(){ var i = idx(); cur.textContent = i + 1; btns[0].disabled = i === 0; btns[1].disabled = strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4; };
+      strip.addEventListener('scroll', function(){ window.requestAnimationFrame(upd); }, { passive: true });
+      upd();
+    }
   }
   });
 

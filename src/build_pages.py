@@ -31,12 +31,12 @@ def header(active):
   <div class="m-contacts"><span>Роман Голубев, директор</span><a href="tel:+79172057000">+7 917 205-70-00</a><span>Офис</span><a href="tel:+79271575888">+7 927 157-58-88</a></div>
 </div>
 '''
-CTA='''<section class="cta-strip"><div class="wrap cta-row"><div><span class="kicker">Роман Голубев, директор ПОGREB WINE</span><h2>Директор лично позвонит и расскажет стоимость</h2><p>Оставьте телефон, и Роман сам перезвонит: ответит на вопросы, подскажет, какой погреб подойдёт вашему дому, и назовёт цену.</p></div><div class="cta-actions"><a class="btn btn-wine" href="contacts.html">Оставить заявку</a><a class="btn btn-line" href="tel:+79172057000">+7 917 205-70-00</a></div></div></section>
+CTA='''<section class="cta-strip"><div class="wrap cta-row"><div><span class="kicker">Расчёт стоимости</span><h2>Мы вам перезвоним и расскажем стоимость</h2><p>Оставьте телефон: ответим на вопросы, подскажем, какой погреб подойдёт вашему дому, и назовём цену.</p></div><div class="cta-actions"><a class="btn btn-wine" href="contacts.html">Оставить заявку</a><a class="btn btn-line" href="tel:+79172057000">+7 917 205-70-00</a></div></div></section>
 '''
 FOOT='''<footer class="foot">
   <div class="wrap foot-row">
     <a class="brand" href="index.html">ПО<b>G</b>REB WINE</a>
-    <span>Спиральные винные погреба по всей России и в Казахстане</span>
+    <span>Спиральные винные погреба по всей России и не только</span>
     <span>Саратов, ул. Кособокова, 40</span>
     <a href="journal.html">Журнал</a>
     <a href="https://t.me/pogrebwine" target="_blank" rel="noopener">Telegram</a>
@@ -58,7 +58,7 @@ def strip_head(sec):
     # remove the sec-head block (first <div class="sec-head">...</div>\n      </div>) — used when page hero already states it
     return sec
 SITE='https://pogreb-wine.ru/'
-ORG={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":SITE+"#org","name":"ПОGREB WINE","alternateName":["Погреб Вайн","Pogreb Wine","ПОГРЕБ WINE","Погреб Wine"],"url":SITE,"logo":SITE+"media/top-hatch.jpg","image":SITE+"media/hatch-open.jpg","description":"Спиральные винные погреба под полом дома со стеклянным автоматическим люком, автоматические винные этажерки. Производство и монтаж по всей России и в Казахстане.","telephone":["+7 917 205-70-00","+7 927 157-58-88"],"address":{"@type":"PostalAddress","streetAddress":"ул. Кособокова, 40","addressLocality":"Саратов","addressRegion":"Саратовская область","addressCountry":"RU"},"areaServed":["Москва","Московская область","Санкт-Петербург","Сочи","Калининград","Саратов","Ростов-на-Дону","Россия","Казахстан"],"founder":{"@type":"Person","name":"Роман Голубев","jobTitle":"Директор"},"sameAs":["https://t.me/pogrebwine"],"priceRange":"от 3 500 000 ₽"}
+ORG={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":SITE+"#org","name":"ПОGREB WINE","alternateName":["Погреб Вайн","Pogreb Wine","ПОГРЕБ WINE","Погреб Wine"],"url":SITE,"logo":SITE+"media/top-hatch.jpg","image":SITE+"media/hatch-open.jpg","description":"Спиральные винные погреба под полом дома со стеклянным автоматическим люком, автоматические винные этажерки. Производство и монтаж по всей России и в Казахстане.","telephone":["+7 917 205-70-00","+7 927 157-58-88"],"address":{"@type":"PostalAddress","streetAddress":"ул. Кособокова, 40","addressLocality":"Саратов","addressRegion":"Саратовская область","addressCountry":"RU"},"areaServed":["Москва","Московская область","Санкт-Петербург","Сочи","Калининград","Екатеринбург","Саратов","Ростов-на-Дону","Россия","Казахстан"],"founder":{"@type":"Person","name":"Роман Голубев","jobTitle":"Директор"},"sameAs":["https://t.me/pogrebwine"],"priceRange":"от 3 500 000 ₽"}
 PAGES=[]
 def crumbs_ld(items):
     return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":SITE+(h if h!='index.html' else '')} for i,(h,n) in enumerate(items)]}
@@ -81,7 +81,7 @@ def faq_ld(sec):
     return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q.strip(),"acceptedAnswer":{"@type":"Answer","text":re.sub(r'<[^>]+>',' ',a).strip()}} for q,a in qs]}
 # ---------- index ----------
 tease='''<section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">Объекты</span><h2>Погреба, которые уже стоят</h2></div><p>Москва и Подмосковье, Сочи, Санкт-Петербург, Калининград, Саратов, Ростов-на-Дону, Казахстан.</p></div>
+  <div class="sec-head"><div><span class="kicker">Объекты</span><h2>Погреба, которые уже стоят</h2></div><p>Москва и Подмосковье, Сочи, Санкт-Петербург, Калининград, Екатеринбург, Саратов, Ростов-на-Дону, Казахстан.</p></div>
   <div class="tease">
     <a class="tcard" href="case-mozhaysk.html"><img src="media/hatch-open.jpg" alt="Приоткрытый люк погреба в ресторане Панинотека"><div class="tcard-body"><div class="tcard-meta">Можайск, ресторан</div><h3>Панинотека</h3><span class="tcard-go"><i></i>Смотреть объект</span></div></a>
     <a class="tcard" href="case-khosta.html"><img src="media/khosta-build.jpg" alt="Люк погреба на вилле в Хосте, за окном море"><div class="tcard-body"><div class="tcard-meta">Хоста, Сочи, вилла</div><h3>Дом над морем</h3><span class="tcard-go"><i></i>Смотреть объект</span></div></a>
@@ -134,7 +134,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
     <div><h3>Мембрана ЭПДМ</h3><p>Прорезиненный герметичный карман толщиной 1,5 мм снаружи погреба. При высоких грунтовых водах добавляем бетонный кессон.</p></div>
     <div><h3>Дуб, плитка, мрамор</h3><p>Ступени, пол и бары отделываем благородным дубом. По желанию плиткой, мрамором или другими породами дерева.</p></div>
     <div><h3>Сталь и триплекс</h3><p>Рама люка из нержавеющей стали и закалённое стекло триплекс толщиной до 32 мм, по которому можно ходить.</p></div>
-    <div><h3>Свет</h3><p>Светодиодная подсветка 24 В, 4000 К под ступенями, у пола и в барах. Показывает этикетки и не греет вино.</p></div>
+    <div><h3>Свет</h3><p>Светодиодная подсветка 24 В, 4000 К по окружности пола и люка, а также в барах. Показывает этикетки и не греет вино.</p></div>
     <div><h3>Автоматика</h3><p>Привод люка 24 В, сенсорная кнопка или отпечаток пальца, подключение к умному дому и Алисе.</p></div>
   </div>
 </div></section>
@@ -151,7 +151,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
   <div>
     <span class="kicker">О компании</span>
     <h2>Вековые традиции и современная инженерия</h2>
-    <p class="lid-lead">ПОGREB WINE работает из Саратова и ставит погреба по всей стране: Москва и Подмосковье, Санкт-Петербург, Сочи, Калининград, Ростов-на-Дону, Казахстан. Люки делаем на собственном производстве и сами везём их на объект на специальном прицепе. Монтаж ведёт наша команда.</p>
+    <p class="lid-lead">ПОGREB WINE работает из Саратова и ставит погреба по всей стране: Москва и Подмосковье, Санкт-Петербург, Сочи, Калининград, Екатеринбург, Ростов-на-Дону, Казахстан. Люки делаем на собственном производстве и сами везём их на объект на специальном прицепе. Монтаж ведёт наша команда.</p>
     <p class="lid-lead" style="margin-top:16px">Каждый погреб для нас отдельный проект, сделанный с заботой о коллекции и вниманием к образу жизни владельца. Мы уверены, что хорошее вино заслуживает лучшего места.</p>
     <div class="hero-actions"><a class="btn btn-wine" href="contacts.html">Обсудить ваш погреб</a><a class="btn btn-line" href="objects.html">Смотреть объекты</a></div>
   </div>
@@ -201,19 +201,17 @@ c=c.replace('светится изнутри.</p>','светится изнут�
 c=c.replace('<div class="case-title">','<div class="case-title" id="paninoteka">',1).replace('<div class="sea">','<div class="sea" id="khosta">',1)
 o=page_hero('Объекты','Погреба, которые уже стоят','Рестораны, частные дома и виллы от Калининграда до Сочи и Казахстана. Два объекта подробно, с фото и тем, как мы их ставили.','media/hall-hatch.jpg','Люк погреба в зале ресторана Панинотека')
 more_cases='''<section class="sec"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">Ещё объекты</span><h2>Калининград и Ростов-на-Дону</h2></div><p>Частные дома, где погреб ставили во время стройки.</p></div>
+  <div class="sec-head"><div><span class="kicker">Ещё объекты</span><h2>Калининград и Екатеринбург</h2></div><p>Частные дома, где погреб ставили во время стройки.</p></div>
   <div class="mini-cases">
     <figure class="mini"><div class="mini-media"><video src="media/kaliningrad.mp4" poster="media/kaliningrad-poster.jpg" muted loop playsinline preload="metadata" aria-label="Люк из четырёх стеклянных секторов в Калининграде"></video></div><figcaption><b>Калининград</b>Частный дом. Круглый люк из четырёх стеклянных секторов в белом интерьере.</figcaption></figure>
-    <figure class="mini"><div class="mini-media"><img src="media/rostov-hatch.jpg" alt="Люк погреба в Ростове-на-Дону на этапе монтажа"></div><figcaption><b>Ростов-на-Дону</b>Частный дом. Погреб с кирпичной отделкой, монтаж люка в перекрытие.</figcaption></figure>
+    <figure class="mini"><div class="mini-media"><img src="media/rostov-hatch.jpg" alt="Люк погреба в Екатеринбурге на этапе монтажа"></div><figcaption><b>Екатеринбург</b>Частный дом. Погреб с кирпичной отделкой, монтаж люка в перекрытие.</figcaption></figure>
   </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">На стройке</span><h2>Как это выглядит до отделки</h2></div><p>Котлован, мембрана, модульные блоки и рама люка. Так погреб выглядит, пока его не закрыли полом.</p></div>
+  <div class="sec-head"><div><span class="kicker">На стройке</span><h2>Как это выглядит до отделки</h2></div><p>Рама люка, перекрытие и стекло. Так погреб выглядит, пока его не закрыли полом. Как ставили погреб в Можайске, смотрите <a href="case-mozhaysk.html">на странице объекта</a>.</p></div>
   <div class="strip" id="strip2" tabindex="0" aria-label="Фото со стройки, листайте в сторону">
-    <figure style="aspect-ratio:3/4"><img src="media/build-membrane.jpg" alt="Котлован с гидроизоляционной мембраной"><figcaption>Котлован и мембрана</figcaption></figure>
-    <figure style="aspect-ratio:3/4"><img src="media/build-blocks.jpg" alt="Сборка модульных блоков погреба"><figcaption>Сборка модульных блоков</figcaption></figure>
     <figure style="aspect-ratio:3/4"><img src="media/kaliningrad-mount.jpg" alt="Монтаж рамы люка в Калининграде"><figcaption>Рама люка, Калининград</figcaption></figure>
-    <figure style="aspect-ratio:3/4"><img src="media/rostov-mount.jpg" alt="Погреб в Ростове-на-Дону во время стройки"><figcaption>Люк в перекрытии, Ростов-на-Дону</figcaption></figure>
+    <figure style="aspect-ratio:3/4"><img src="media/rostov-mount.jpg" alt="Погреб в Екатеринбурге во время стройки"><figcaption>Люк в перекрытии, Екатеринбург</figcaption></figure>
     <figure style="aspect-ratio:3/4"><img src="media/mount-glass.jpg" alt="Установка стекла прямоугольного люка на присосках"><figcaption>Ставим стекло люка</figcaption></figure>
     <figure style="aspect-ratio:3/4"><img src="media/mount-glass-done.jpg" alt="Прямоугольный люк смонтирован в пол перед отделкой"><figcaption>Люк в полу, перед отделкой</figcaption></figure>
   </div>

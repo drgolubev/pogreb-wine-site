@@ -205,3 +205,14 @@ a.beer:hover{border-color:var(--claret)}
 .etz-cap{position:absolute;left:12px;top:10px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ash);z-index:1;pointer-events:none}
 .etz-video .etz-cap{color:var(--bone);text-shadow:0 1px 6px rgba(0,0,0,.6)}
 @media (max-width:900px){.etz-tease,.lid-etz{grid-template-columns:1fr}.etz-pair{max-width:520px}}
+
+/* gallery controls */
+.strip-nav{display:flex;align-items:center;gap:14px;margin-top:14px}
+.strip-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;color:var(--bone);font-size:1.1rem;cursor:pointer;transition:background .3s,border-color .3s,opacity .3s}
+.strip-btn:hover:not(:disabled){background:var(--wine);border-color:var(--wine)}
+.strip-btn:disabled{opacity:.3;cursor:default}
+.strip-count{font-size:var(--step--1);color:var(--ash);font-variant-numeric:tabular-nums;min-width:6.5em;text-align:center}
+.strip-count b{color:var(--bone);font-weight:500}
+@media (max-width:900px){.strip figure{height:min(52vh,420px)}}
+/* etagere: title above the pictures on phones */
+@media (max-width:900px){.etz-tease > div:last-child{order:-1}}
