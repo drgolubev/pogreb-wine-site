@@ -21,7 +21,7 @@ mz+='''<section class="sec" style="padding-top:0"><div class="wrap passport">
     <div><dt>Помещение</dt><dd>готовый обеденный зал</dd></div>
     <div><dt>Условия</dt><dd>высокие грунтовые воды рядом с водохранилищем</dd></div>
     <div><dt>Защита от воды</dt><dd>монолитный бетонный кессон и мембрана ЭПДМ</dd></div>
-    <div><dt>Люк</dt><dd>круглый, на актуаторе: половина стекла прокручивается под вторую</dd></div>
+    <div><dt>Люк</dt><dd>круглый, лифтовые механизмы и осевое вращение</dd></div>
     <div><dt>Стекло</dt><dd>триплекс с чёрной стемалитовой полосой</dd></div>
   </dl>
 </div></section>
@@ -38,7 +38,7 @@ mz+='''<section class="sec" style="padding-top:0"><div class="wrap passport">
     <li><figure><img src="media/mz-stage-1.jpg" alt="Основание кессона под погреб в Можайске" loading="lazy"></figure><span class="st-n">01</span><h3>Основание</h3><p>Вскрыли плиту перекрытия, вручную выбрали грунт и подготовили основание кессона.</p></li>
     <li><figure><img src="media/mz-stage-2.jpg" alt="Монолитный бетонный кессон под погреб" loading="lazy"></figure><span class="st-n">02</span><h3>Кессон</h3><p>Залили монолитный бетонный кессон. Он принимает давление грунтовых вод на себя.</p></li>
     <li><figure><img src="media/mz-stage-3.jpg" alt="Модульные блоки и ступени погреба внутри мембраны" loading="lazy"></figure><span class="st-n">03</span><h3>Мембрана и блоки</h3><p>Уложили мембрану ЭПДМ, собрали модульный погреб, лестницу и вентиляцию.</p></li>
-    <li><figure><img src="media/hatch-closed.jpg" alt="Закрытый стеклянный люк в полу ресторана" loading="lazy"></figure><span class="st-n">04</span><h3>Люк и пол</h3><p>Поставили люк на актуаторе: стекло приподнимается, и половина прокручивается под вторую, восстановили пол плиткой.</p></li>
+    <li><figure><img src="media/hatch-closed.jpg" alt="Закрытый стеклянный люк в полу ресторана" loading="lazy"></figure><span class="st-n">04</span><h3>Люк и пол</h3><p>Поставили люк с лифтовыми механизмами и осевым вращением, восстановили пол плиткой.</p></li>
     <li><figure><img src="media/top-hatch.jpg" alt="Вид сверху сквозь стекло люка на лестницу" loading="lazy"></figure><span class="st-n">05</span><h3>Готово</h3><p>Стекло триплекс, подсветка, дубовые ступени. После сдачи ресторан открыл новое винное пространство.</p></li>
   </ol>
 </div></section>
@@ -70,7 +70,7 @@ kh+='''<section class="sec" style="padding-top:0"><div class="wrap lid">
   <div>
     <span class="kicker">Об объекте</span>
     <h2>Белый погреб в светлом доме</h2>
-    <p class="lid-lead">Интерьер виллы светлый, с панорамным остеклением на море. Погреб сделали в тон: белые модульные блоки, дубовые ступени и круглый стеклянный люк в полу гостиной. Когда люк закрыт, он почти растворяется в полу.</p>
+    <p class="lid-lead">Интерьер виллы светлый, с панорамным остеклением и видом на море. Погреб сделали в тон: белые модульные блоки, дубовые ступени и круглый стеклянный люк в полу гостиной. Когда люк закрыт, он почти растворяется в полу.</p>
     <dl class="specs">
       <div><dt>Объект</dt><dd>частная вилла</dd></div>
       <div><dt>Место</dt><dd>Хоста, Сочи</dd></div>
@@ -125,7 +125,7 @@ kh+='''<section class="sec" style="padding-top:0"><div class="wrap lid">
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="sec-head"><div><span class="kicker">Читать по теме</span><h2>Погреб в новом доме</h2></div><p>Если дом ещё строится, погреб проще заложить в проект.</p></div>
   <div class="jgrid jgrid-2">'''+art_card(AMAP['pogreb-v-proekte-doma'])+art_card(AMAP['kak-hranit-vino-doma'])+'''</div>
-  <div class="case-next"><span>Следующий объект</span><a href="case-kaliningrad.html">Люк из четырёх секторов, Калининград →</a></div>
+  <div class="case-next"><span>Следующий объект</span><a href="case-kaliningrad.html">На берегу Балтийского моря, Калининград →</a></div>
 </div></section>
 '''+CTA
 doc('case-khosta.html','Погреб на вилле в Хосте, Сочи — ПОGREB WINE','Спиральный винный погреб в гостиной частной виллы в Хосте (Сочи) на горном склоне с видом на море: круглый стеклянный люк, белые блоки, дубовые ступени.',kh,'objects.html',

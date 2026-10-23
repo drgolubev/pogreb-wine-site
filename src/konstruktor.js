@@ -10,18 +10,13 @@
   var NS = 'http://www.w3.org/2000/svg';
 
   var WOOD = { 'leather': '#3a302b', 'oak': '#b88752' };
-  var GLASS = {
-    clear: 'rgba(205,228,235,.12)', bronze: 'rgba(122,68,24,.52)',
-    graphite: 'rgba(14,16,20,.66)', blue: 'rgba(24,62,116,.52)'
-  };
+  var GLASS = { clear: 'rgba(205,228,235,.12)', bronze: 'rgba(122,68,24,.52)', grey: 'rgba(58,62,66,.55)' };
   var MECH_PHOTO = {
-    act: ['media/hero-hatch-open-poster.jpg', 'Люк на актуаторе: половина стекла прокручивается под вторую'],
-    hinge: ['media/k-hinge.jpg', 'Половина стекла откинута на обратном шарнире'],
-    act: ['media/k-act.jpg', 'Стекло приподнято актуатором'],
-    rect: ['media/hatch-lift-poster.jpg', 'Прямоугольный люк на подъёмном приводе']
+    lift: ['media/hero-hatch-open-poster.jpg', 'Лифтовый механизм с осевым вращением: половина стекла прокручивается под вторую'],
+    hinge: ['media/k-hinge.jpg', 'Актуатор с обратной петлёй: половина стекла поднята']
   };
   var MECH_VIDEO = {
-    act: ['media/hero-hatch-open.mp4', 'Актуатор: стекло приподнимается, и половина люка прокручивается под вторую']
+    lift: ['media/hero-hatch-open.mp4', 'Лифтовый механизм с осевым вращением: стекло приподнимается, и половина люка прокручивается под вторую']
   };
   var CTRL_PHOTO = {
     panel: 'media/k-panel.jpg', remote: 'media/k-remote.jpg', finger: 'media/k-finger.jpg', smart: 'media/k-panel.jpg'
@@ -133,7 +128,8 @@
 
     // ступени по спирали, снизу вверх
     var wood = WOOD[c.wood];
-    var N = Math.round(depth / 0.2), step = 27, start = 100;
+    // первая ступень там, где открывается стекло: у лифтового механизма ближняя половина, у петли дальняя
+    var N = Math.round(depth / 0.2), step = 27, start = c.mech === 'hinge' ? 200 : 20;
     for (var i = N - 1; i >= 0; i--) {
       var dd = 0.18 + i * (depth - 0.24) / N;
       var s0 = (start + i * step) * Math.PI / 180, s1 = s0 + (step - 2) * Math.PI / 180;
@@ -229,7 +225,7 @@
     var gcol = GLASS[c.glass], gx = sx - 6, gw = sw + 12;
     var glass = el('g', { 'class': 'kz-cut-glass' }, svg);
     var tr = '';
-    if (c.mech === 'act' && open) {
+    if (c.mech === 'lift' && open) {
       // половина приподнялась на пару миллиметров, вторая прокрутилась и ушла под неё
       el('rect', { x: gx + gw / 2, y: fy - 3, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5, opacity: .85 }, glass);
       el('rect', { x: gx + gw / 2, y: fy - 9, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5 }, glass);
@@ -303,10 +299,10 @@
     return 'Конфигурация погреба с сайта:\n' + rows.map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
   }
 
-  // у прямоугольного люка половину стекла не прокрутить, поэтому актуатор только у круглого и овального
+  // у прямоугольного люка половину стекла не прокрутить, поэтому лифтовый механизм с вращением только у круглого и овального
   function syncMech() {
     var rect = form.querySelector('input[name="shape"][value="rect"]').checked;
-    var act = form.querySelector('input[name="mech"][value="act"]');
+    var act = form.querySelector('input[name="mech"][value="lift"]');
     act.closest('label').hidden = rect;
     act.disabled = rect;
     if (rect && act.checked) {

@@ -75,7 +75,7 @@ def doc(fname, title, desc, body, active, first=False, ld=None, img='media/hatch
         inner='<!doctype html>\n<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'+head+'</head><body>\n'+header(active)+'<main>\n'+body+'</main>\n'+FOOT+'\n</body></html>'
     open(os.path.join(OUT,fname),'w',encoding='utf-8').write(inner)
 
-PROD_LD=[{"@context":"https://schema.org","@type":"Product","name":"Спиральный винный погреб с автоматическим стеклянным люком","brand":{"@type":"Brand","name":"ПОGREB WINE"},"description":"Модульный спиральный погреб глубиной 2–3 м на 800–3 500 бутылок: блоки из бетона М500, мембрана ЭПДМ, кожаные накладки на ступенях, LED-подсветка 24 В, автоматический люк из триплекса до 32 мм.","image":SITE+"media/hatch-open.jpg","offers":{"@type":"AggregateOffer","lowPrice":"3500000","priceCurrency":"RUB","availability":"https://schema.org/InStock","seller":{"@id":SITE+"#org"}}},
+PROD_LD=[{"@context":"https://schema.org","@type":"Product","name":"Спиральный винный погреб с автоматическим стеклянным люком","brand":{"@type":"Brand","name":"ПОGREB WINE"},"description":"Модульный спиральный погреб глубиной 2–3 м на 800–3 500 бутылок: блоки из бетона М500, мембрана ЭПДМ, дубовые накладки на ступенях, LED-подсветка 24 В, автоматический люк из триплекса до 32 мм.","image":SITE+"media/hatch-open.jpg","offers":{"@type":"AggregateOffer","lowPrice":"3500000","priceCurrency":"RUB","availability":"https://schema.org/InStock","seller":{"@id":SITE+"#org"}}},
  {"@context":"https://schema.org","@type":"Product","name":"Автоматическая винная этажерка, поднимающаяся из пола","brand":{"@type":"Brand","name":"ПОGREB WINE"},"description":"Этажерка из нержавеющей стали с тремя ярусами, Ø250 мм на 12–15 бутылок или Ø400 мм на 15–25 бутылок.","offers":{"@type":"AggregateOffer","lowPrice":"250000","priceCurrency":"RUB","availability":"https://schema.org/InStock","seller":{"@id":SITE+"#org"}}}]
 def faq_ld(sec):
     qs=re.findall(r'<summary>(.*?)<i[^>]*></i></summary><div class="ans">(.*?)</div>',sec,flags=re.S)
@@ -88,12 +88,12 @@ tease='''<section class="sec" style="padding-top:0"><div class="wrap">
 </div></section>
 '''
 arch_short=S['ARCHITECTS'].replace('<section class="band" id="architects">','<section class="band band-short">').replace('href="#contact" data-scroll data-role="architect">Обсудить партнёрство','href="architects.html">Условия для архитекторов')
-INSIDE='''<section class="inside" aria-label="Внутри погреба"><div class="inside-media"><video src="media/inside-descent.mp4" poster="media/inside-descent-poster.jpg" muted loop playsinline preload="metadata" aria-label="Спуск по лестнице мимо ниш с вином и шампанским"></video></div><div class="wrap inside-copy"><h2>Ниши для бутылок, ящиков и шампанского по всей спирали</h2><p>Каждая полка под рукой, пока спускаетесь по лестнице. Подсветка 4000 К показывает этикетки и не греет вино.</p></div></section>\n'''
+INSIDE='''<section class="inside" aria-label="Внутри погреба"><div class="inside-media"><video src="media/inside-descent.mp4" poster="media/inside-descent-poster.jpg" muted loop playsinline preload="metadata" aria-label="Спуск по лестнице мимо ниш с вином и шампанским"></video></div><div class="wrap inside-copy"><h2>Ниши для бутылок, ящиков и шампанского по всей спирали</h2><p>Каждая полка под рукой, пока спускаетесь по лестнице.</p></div></section>\n'''
 ETZ_TEASE='''<section class="sec" style="padding-top:0"><div class="wrap etz-tease"><div class="etz-pair"><div class="etz-scheme">'''+etz_svg()+'''<span class="etz-cap">Схема</span></div><div class="etz-video"><video src="media/etz-lift.mp4" poster="media/etz-lift-poster.jpg" muted loop playsinline preload="metadata" aria-label="Этажерка из нержавеющей стали поднимается из пола с напитками на трёх ярусах и опускается обратно"></video><span class="etz-cap">Видео</span></div></div><div><span class="kicker">Ещё мы делаем</span><h2>Этажерка, которая поднимается из пола</h2><p class="lid-lead">Три яруса из нержавеющей стали выезжают из пола одним касанием и показывают коллекцию. Ставится в гостиной, винной комнате, ресторане или у зоны барбекю. А в бочке на колёсиках её можно выкатить даже на улицу.</p><div class="hero-actions"><a class="btn btn-line" href="etazherki.html">Подробнее об этажерках</a></div></div></div></section>\n'''
 ANAT_IDX=S['ANATOMY'].replace('{{DIAGRAM}}',D).replace(' style="padding-top:0"','')+'<div class="wrap anat-more"><a class="btn btn-line" href="pogreb.html">Подробнее об устройстве</a></div>\n'
 KZ_TEASE='''<section class="sec" style="padding-top:0"><div class="wrap kz-tease"><a class="kz-tease-media" href="konstruktor.html" aria-label="Открыть конструктор погреба"><img src="media/k-lift.jpg" alt="Круглый стеклянный люк поднят и повёрнут в сторону, под ним подсвеченная лестница" loading="lazy"><span class="kz-tease-tag">Онлайн</span></a><div><span class="kicker">Конструктор</span><h2>Соберите свой погреб за пару минут</h2><p class="lid-lead">Выберите форму люка, механизм, цвет стекла, глубину и дерево ступеней. Рисунок меняется вместе с выбором, а люк открывается прямо на экране. Готовую сборку отправьте нам, и мы назовём цену.</p><div class="hero-actions"><a class="btn btn-wine" href="konstruktor.html">Открыть конструктор</a></div></div></div></section>
 '''
-idx=fix(S['HERO'])+S['IRIS']+S['COMPARE']+ANAT_IDX+INSIDE+tease+KZ_TEASE+ETZ_TEASE+arch_short+CTA
+idx=fix(S['HERO'])+S['IRIS']+S['COMPARE']+ANAT_IDX+INSIDE+tease+KZ_TEASE+ETZ_TEASE+CTA
 doc('index.html','ПОGREB WINE','Спиральные винные погреба под полом дома со стеклянным автоматическим люком. От 3,5 млн ₽, 800–3 500 бутылок, монтаж до 10 дней.',idx,'index.html',first=True,ld=PROD_LD)
 
 # ---------- pogreb ----------
@@ -133,7 +133,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
   <div class="mat">
     <div><h3>Модульные блоки</h3><p>Бетон класса М500 с пластификаторами и фиброволокном. Держит нагрузку грунта, не боится влаги и служит практически без срока.</p></div>
     <div><h3>Мембрана ЭПДМ</h3><p>Прорезиненный герметичный карман толщиной 1,5 мм снаружи погреба. При высоких грунтовых водах добавляем бетонный кессон.</p></div>
-    <div><h3>Натуральный дуб и кожа</h3><p>Пол и бары отделываем натуральным дубом. На ступенях в стандарте кожаные накладки, а по желанию ступени делаем целиком из дуба.</p></div>
+    <div><h3>Натуральный дуб и кожа</h3><p>Ступени, пол и бары отделываем натуральным дубом. По желанию на ступени ставим кожаные накладки.</p></div>
     <div><h3>Сталь и триплекс</h3><p>Рама люка из нержавеющей стали и закалённое стекло триплекс толщиной до 32 мм, по которому можно ходить.</p></div>
     <div><h3>Свет</h3><p>Светодиодная подсветка 24 В, 4000 К по окружности пола и люка, а также в барах. Показывает этикетки и не греет вино.</p></div>
     <div><h3>Автоматика</h3><p>Привод люка 24 В, сенсорная кнопка или отпечаток пальца, подключение к умному дому и Алисе.</p></div>
@@ -217,7 +217,6 @@ o+='''<section class="sec" style="padding-top:0"><div class="wrap">
     <h4>Где стоят наши погреба</h4>
     <div>
       <ul class="cities"><li>Москва</li><li>Подмосковье</li><li>Санкт-Петербург</li><li>Сочи</li><li>Калининград</li><li>Екатеринбург</li><li>Саратов</li></ul>
-      <p class="geo-note">Среди объектов есть музей-усадьба «Белая Дача» с прямоугольным люком. В 2024 году мы показывали автоматический люк на выставке «Виноиндустрия» в Санкт-Петербурге.</p>
     </div>
   </div>
 </div></section>
