@@ -303,8 +303,21 @@
     return 'Конфигурация погреба с сайта:\n' + rows.map(function (r) { return r[0] + ': ' + r[1]; }).join('\n');
   }
 
+  // у прямоугольного люка половину стекла не прокрутить, поэтому актуатор только у круглого и овального
+  function syncMech() {
+    var rect = form.querySelector('input[name="shape"][value="rect"]').checked;
+    var act = form.querySelector('input[name="mech"][value="act"]');
+    act.closest('label').hidden = rect;
+    act.disabled = rect;
+    if (rect && act.checked) {
+      form.querySelector('input[name="mech"][value="hinge"]').checked = true;
+      return true;
+    }
+    return false;
+  }
   function update(changed) {
     var prev = cur;
+    syncMech();
     cur = readForm();
     // смена механизма или формы: старый люк мгновенно закрываем без анимации,
     // иначе одновременно играют закрытие старого механизма и открытие нового

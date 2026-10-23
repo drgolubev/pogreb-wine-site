@@ -381,3 +381,5 @@ a.beer:hover{border-color:var(--claret)}
 html.kz-lock{overflow:hidden}
 
 .kz-stage.kz-instant .kz-glass,.kz-stage.kz-instant .kz-g{transition:none!important}
+
+.kz-opt[hidden]{display:none}
