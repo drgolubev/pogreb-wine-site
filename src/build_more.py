@@ -90,11 +90,11 @@ kh+='''<section class="sec" style="padding-top:0"><div class="wrap lid">
   <div class="etz-video"><video src="media/kh-ready.mp4" poster="media/kh-ready-poster.jpg" muted loop playsinline preload="metadata" aria-label="Белые модульные блоки и дубовые ступени погреба на вилле в Хосте"></video></div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">Как ставили</span><h2>Погреб на горном склоне</h2></div><p>Блоки в мембране, лестница и колонна, проверка подсветки и монтаж люка. Всё это происходило, пока на вилле шла отделка.</p></div>
+  <div class="sec-head"><div><span class="kicker">Как ставили</span><h2>Погреб на горном склоне</h2></div><p>Блоки в мембране, лестница и колонна, проверка каждого ряда электронным уровнем и монтаж люка. Всё это происходило, пока на вилле шла отделка.</p></div>
   <div class="strip" id="strip" tabindex="0" aria-label="Фото со стройки в Хосте, листайте в сторону">
     <figure style="aspect-ratio:3/4"><img src="media/kh-st1.jpg" alt="Модульные блоки погреба в мембране" loading="lazy"><figcaption>Блоки в мембране</figcaption></figure>
     <figure style="aspect-ratio:3/4"><img src="media/kh-st2.jpg" alt="Лестница и центральная колонна до отделки" loading="lazy"><figcaption>Лестница и колонна до отделки</figcaption></figure>
-    <figure style="aspect-ratio:3/4"><img src="media/kh-st3.jpg" alt="Проверка подсветки погреба" loading="lazy"><figcaption>Проверяем подсветку</figcaption></figure>
+    <figure style="aspect-ratio:3/4"><img src="media/kh-st3.jpg" alt="Электронный уровень на ряду блоков: проверяем, что ряд идеально ровный" loading="lazy"><figcaption>Электронный уровень: ряд должен быть идеально ровным</figcaption></figure>
     <figure style="aspect-ratio:3/4"><img src="media/khosta-build.jpg" alt="Люк в гостиной на этапе отделки, за окном море" loading="lazy"><figcaption>Люк в гостиной на этапе отделки</figcaption></figure>
     <figure style="aspect-ratio:3/4"><img src="media/kh-open.jpg" alt="Открытый люк в готовой гостиной" loading="lazy"><figcaption>Готово: люк открыт</figcaption></figure>
   </div>

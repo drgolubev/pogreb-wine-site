@@ -9,7 +9,7 @@
   var cut = document.getElementById('kzCut');
   var NS = 'http://www.w3.org/2000/svg';
 
-  var WOOD = { 'oak-light': '#d8b98b', 'oak': '#b88752', 'walnut': '#7a4d2c', 'oak-dark': '#4a3122' };
+  var WOOD = { 'leather': '#3a302b', 'oak': '#b88752' };
   var GLASS = {
     clear: 'rgba(205,228,235,.12)', bronze: 'rgba(122,68,24,.52)',
     graphite: 'rgba(14,16,20,.66)', blue: 'rgba(24,62,116,.52)'
@@ -100,7 +100,7 @@
       n++;
     }
     // пол внизу
-    el('circle', { cx: 0, cy: Y(depth), r: R(depth), fill: shade(WOOD[c.wood], .42, true) }, g);
+    el('circle', { cx: 0, cy: Y(depth), r: R(depth), fill: shade(WOOD.oak, .42, true) }, g);
     el('circle', { cx: 0, cy: Y(depth), r: R(depth), fill: 'none', stroke: '#ffcf86', 'stroke-width': 3.2, opacity: .85 }, g);
 
     // ниши с бутылками, снизу вверх
@@ -140,10 +140,17 @@
       var k2 = 1 - 0.62 * (dd / 3);
       // тень и торец под ступенью
       el('path', { d: wedge(dd + 0.16, s0, s1, RC, F, Y, R), fill: 'rgba(20,10,5,.45)' }, g);
-      el('path', { d: wedge(dd + 0.05, s0, s1, RC, F, Y, R), fill: shade(wood, k2 * .5, true) }, g);
-      el('path', { d: wedge(dd, s0, s1, RC, F, Y, R), fill: shade(wood, k2, true) }, g);
+      var leather = c.wood === 'leather', frame = leather ? '#e6ddd0' : wood;
+      el('path', { d: wedge(dd + 0.05, s0, s1, RC, F, Y, R), fill: shade(frame, k2 * .5, true) }, g);
+      el('path', { d: wedge(dd, s0, s1, RC, F, Y, R), fill: shade(frame, k2, true) }, g);
       var sm = (s0 + s1) / 2, rin = RC * F(dd), rout = R(dd) - 2, cy = Y(dd);
-      for (var gr = -1; gr <= 1; gr += 2) {
+      if (leather) {
+        // белая ступень с кожаной накладкой внутри
+        var pad = 2.2 * Math.PI / 180, r1 = rin + 14 * F(dd), r2 = rout - 7 * F(dd);
+        var P = function (r, a) { return (r * Math.cos(a)) + ' ' + (cy + r * Math.sin(a)); };
+        el('path', { d: 'M' + P(r1, s0 + pad) + 'L' + P(r2, s0 + pad) + 'A' + r2 + ' ' + r2 + ' 0 0 1 ' + P(r2, s1 - pad) + 'L' + P(r1, s1 - pad) + 'Z', fill: shade(wood, k2, true) }, g);
+      }
+      for (var gr = -1; gr <= 1 && !leather; gr += 2) {
         var ag = sm + gr * 0.12;
         el('line', { x1: rin * Math.cos(ag), y1: cy + rin * Math.sin(ag), x2: rout * Math.cos(ag), y2: cy + rout * Math.sin(ag), stroke: shade(wood, k2 * .8, true), 'stroke-width': 1.1 * F(dd) * 2, opacity: .45 }, g);
       }
@@ -213,7 +220,7 @@
       el('rect', { x: x1, y: sy, width: Math.max(w, 6), height: 7, fill: shade(wood, z < 0 ? .62 : 1, true), rx: 1.5 }, grp);
       el('rect', { x: x1, y: sy + 7, width: Math.max(w, 6), height: 3, fill: shade(wood, .45, true) }, grp);
     }
-    el('rect', { x: sx, y: bot - 8, width: sw, height: 8, fill: shade(wood, .7, true) }, svg);
+    el('rect', { x: sx, y: bot - 8, width: sw, height: 8, fill: shade(WOOD.oak, .7, true) }, svg);
     el('line', { x1: sx + 2, y1: bot - 9, x2: sx + sw - 2, y2: bot - 9, stroke: '#ffd08a', 'stroke-width': 2 }, svg);
     el('line', { x1: sx + 2, y1: fy + 20, x2: sx + sw - 2, y2: fy + 20, stroke: '#ffe2b0', 'stroke-width': 2 }, svg);
     el('rect', { x: sx - 12, y: bot, width: sw + 24, height: 14, fill: '#9d8f80' }, svg);

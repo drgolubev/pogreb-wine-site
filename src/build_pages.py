@@ -59,7 +59,7 @@ def strip_head(sec):
     # remove the sec-head block (first <div class="sec-head">...</div>\n      </div>) — used when page hero already states it
     return sec
 SITE='https://pogreb-wine.ru/'
-ORG={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":SITE+"#org","name":"ПОGREB WINE","alternateName":["Погреб Вайн","Pogreb Wine","ПОГРЕБ WINE","Погреб Wine"],"url":SITE,"logo":SITE+"media/top-hatch.jpg","image":SITE+"media/hatch-open.jpg","description":"Спиральные винные погреба под полом дома со стеклянным автоматическим люком, автоматические винные этажерки. Производство и монтаж по всей России.","telephone":["+7 917 205-70-00","+7 927 157-58-88"],"address":{"@type":"PostalAddress","streetAddress":"ул. Кособокова, 40","addressLocality":"Саратов","addressRegion":"Саратовская область","addressCountry":"RU"},"areaServed":["Москва","Московская область","Санкт-Петербург","Сочи","Калининград","Екатеринбург","Саратов","Ростов-на-Дону","Россия"],"founder":{"@type":"Person","name":"Роман Голубев","jobTitle":"Директор"},"sameAs":["https://t.me/pogrebwine"],"priceRange":"от 3 500 000 ₽"}
+ORG={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":SITE+"#org","name":"ПОGREB WINE","alternateName":["Погреб Вайн","Pogreb Wine","ПОГРЕБ WINE","Погреб Wine"],"url":SITE,"logo":SITE+"media/top-hatch.jpg","image":SITE+"media/hatch-open.jpg","description":"Спиральные винные погреба под полом дома со стеклянным автоматическим люком, автоматические винные этажерки. Производство и монтаж по всей России.","telephone":["+7 917 205-70-00","+7 927 157-58-88"],"address":{"@type":"PostalAddress","streetAddress":"ул. Кособокова, 40","addressLocality":"Саратов","addressRegion":"Саратовская область","addressCountry":"RU"},"areaServed":["Москва","Московская область","Санкт-Петербург","Сочи","Калининград","Екатеринбург","Саратов","Россия"],"founder":{"@type":"Person","name":"Роман Голубев","jobTitle":"Директор"},"sameAs":["https://t.me/pogrebwine"],"priceRange":"от 3 500 000 ₽"}
 PAGES=[]
 def crumbs_ld(items):
     return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":SITE+(h if h!='index.html' else '')} for i,(h,n) in enumerate(items)]}
@@ -75,14 +75,14 @@ def doc(fname, title, desc, body, active, first=False, ld=None, img='media/hatch
         inner='<!doctype html>\n<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'+head+'</head><body>\n'+header(active)+'<main>\n'+body+'</main>\n'+FOOT+'\n</body></html>'
     open(os.path.join(OUT,fname),'w',encoding='utf-8').write(inner)
 
-PROD_LD=[{"@context":"https://schema.org","@type":"Product","name":"Спиральный винный погреб с автоматическим стеклянным люком","brand":{"@type":"Brand","name":"ПОGREB WINE"},"description":"Модульный спиральный погреб глубиной 2–3 м на 800–3 500 бутылок: блоки из бетона М500, мембрана ЭПДМ, дубовые ступени, LED-подсветка 24 В, автоматический люк из триплекса до 32 мм.","image":SITE+"media/hatch-open.jpg","offers":{"@type":"AggregateOffer","lowPrice":"3500000","priceCurrency":"RUB","availability":"https://schema.org/InStock","seller":{"@id":SITE+"#org"}}},
+PROD_LD=[{"@context":"https://schema.org","@type":"Product","name":"Спиральный винный погреб с автоматическим стеклянным люком","brand":{"@type":"Brand","name":"ПОGREB WINE"},"description":"Модульный спиральный погреб глубиной 2–3 м на 800–3 500 бутылок: блоки из бетона М500, мембрана ЭПДМ, кожаные накладки на ступенях, LED-подсветка 24 В, автоматический люк из триплекса до 32 мм.","image":SITE+"media/hatch-open.jpg","offers":{"@type":"AggregateOffer","lowPrice":"3500000","priceCurrency":"RUB","availability":"https://schema.org/InStock","seller":{"@id":SITE+"#org"}}},
  {"@context":"https://schema.org","@type":"Product","name":"Автоматическая винная этажерка, поднимающаяся из пола","brand":{"@type":"Brand","name":"ПОGREB WINE"},"description":"Этажерка из нержавеющей стали с тремя ярусами, Ø250 мм на 12–15 бутылок или Ø400 мм на 15–25 бутылок.","offers":{"@type":"AggregateOffer","lowPrice":"250000","priceCurrency":"RUB","availability":"https://schema.org/InStock","seller":{"@id":SITE+"#org"}}}]
 def faq_ld(sec):
     qs=re.findall(r'<summary>(.*?)<i[^>]*></i></summary><div class="ans">(.*?)</div>',sec,flags=re.S)
     return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q.strip(),"acceptedAnswer":{"@type":"Answer","text":re.sub(r'<[^>]+>',' ',a).strip()}} for q,a in qs]}
 # ---------- index ----------
 tease='''<section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">Объекты</span><h2>Погреба, которые уже стоят</h2></div><p>Москва и Подмосковье, Сочи, Санкт-Петербург, Калининград, Екатеринбург, Саратов, Ростов-на-Дону.</p></div>
+  <div class="sec-head"><div><span class="kicker">Объекты</span><h2>Погреба, которые уже стоят</h2></div><p>Москва и Подмосковье, Сочи, Санкт-Петербург, Калининград, Екатеринбург, Саратов.</p></div>
   <div class="ogrid ogrid-4">'''+''.join(case_card(x) for x in CASES[:4])+'''</div>
   <div class="case-more"><a class="btn btn-line" href="objects.html">Все объекты</a></div>
 </div></section>
@@ -104,7 +104,7 @@ LIFT='''<section class="sec" style="padding-top:0"><div class="wrap lift">
 '''
 
 anat=S['ANATOMY'].replace('{{DIAGRAM}}',D).replace(' style="padding-top:0"','')
-p=page_hero('Устройство','Как устроен спиральный погреб','Бетонные блоки, мембрана, дубовая лестница, свет и стеклянный люк. Разбираем по частям, из чего состоит погреб и почему ему не нужно электричество.','media/top-hatch.jpg','Вид сверху сквозь стеклянный люк на лестницу погреба')
+p=page_hero('Устройство','Как устроен спиральный погреб','Бетонные блоки, мембрана, винтовая лестница, свет и стеклянный люк. Разбираем по частям, из чего состоит погреб и почему ему не нужно электричество.','media/top-hatch.jpg','Вид сверху сквозь стеклянный люк на лестницу погреба')
 p+=anat+S['LID']+LIFT+INSIDE.replace('Ниши для бутылок, ящиков и шампанского по всей спирали','Так выглядит спуск в погреб')+S['FAQ']+CTA
 doc('pogreb.html','Устройство, ПОGREB WINE','Устройство спирального винного погреба: люк, лестница, блоки М500, мембрана ЭПДМ, кессон, вентиляция, подсветка.',p,'pogreb.html',ld=[faq_ld(S['FAQ']),crumbs_ld([('index.html','Главная'),('pogreb.html','Устройство')])],img='media/top-hatch.jpg')
 
@@ -114,7 +114,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
   <div><span class="kicker">Что это такое</span><h2>Колодец из камня, лестница и ваша коллекция вокруг неё</h2></div>
   <div class="about-text">
     <p>Спиральный погреб уходит под пол на 2–3 метра. Его стены собраны из модульных блоков, внутри идёт винтовая лестница, а по стенам вдоль всей спирали расположены ниши для бутылок, ящиков и шампанского. Сверху погреб закрыт стеклянным люком, который выглядит как часть пола гостиной, кухни или террасы.</p>
-    <p>Касание кнопки, и люк плавно открывается. Вы спускаетесь по дубовым ступеням, а бутылки всё время под рукой. Погреб можно поставить при строительстве или в уже готовый дом, и он не отнимает ни метра площади комнаты.</p>
+    <p>Касание кнопки, и люк плавно открывается. Вы спускаетесь по винтовой лестнице, а бутылки всё время под рукой. Погреб можно поставить при строительстве или в уже готовый дом, и он не отнимает ни метра площади комнаты.</p>
     <p>Мы не просто строим погреба. Каждый проект подбираем под дом, интерьер и коллекцию владельца: форму, глубину, отделку ступеней, бары, свет и способ открывания люка.</p>
   </div>
 </div></section>
@@ -133,7 +133,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
   <div class="mat">
     <div><h3>Модульные блоки</h3><p>Бетон класса М500 с пластификаторами и фиброволокном. Держит нагрузку грунта, не боится влаги и служит практически без срока.</p></div>
     <div><h3>Мембрана ЭПДМ</h3><p>Прорезиненный герметичный карман толщиной 1,5 мм снаружи погреба. При высоких грунтовых водах добавляем бетонный кессон.</p></div>
-    <div><h3>Дуб и другие породы дерева</h3><p>Ступени, пол и бары отделываем только деревом: благородным дубом или другой породой на выбор под интерьер дома.</p></div>
+    <div><h3>Натуральный дуб и кожа</h3><p>Пол и бары отделываем натуральным дубом. На ступенях в стандарте кожаные накладки, а по желанию ступени делаем целиком из дуба.</p></div>
     <div><h3>Сталь и триплекс</h3><p>Рама люка из нержавеющей стали и закалённое стекло триплекс толщиной до 32 мм, по которому можно ходить.</p></div>
     <div><h3>Свет</h3><p>Светодиодная подсветка 24 В, 4000 К по окружности пола и люка, а также в барах. Показывает этикетки и не греет вино.</p></div>
     <div><h3>Автоматика</h3><p>Привод люка 24 В, сенсорная кнопка или отпечаток пальца, подключение к умному дому и Алисе.</p></div>
@@ -152,7 +152,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
   <div>
     <span class="kicker">О компании</span>
     <h2>Вековые традиции и современная инженерия</h2>
-    <p class="lid-lead">ПОGREB WINE работает из Саратова и ставит погреба по всей стране: Москва и Подмосковье, Санкт-Петербург, Сочи, Калининград, Екатеринбург, Ростов-на-Дону. Люки делаем на собственном производстве и сами везём их на объект на специальном прицепе. Монтаж ведёт наша команда.</p>
+    <p class="lid-lead">ПОGREB WINE работает из Саратова и ставит погреба по всей стране: Москва и Подмосковье, Санкт-Петербург, Сочи, Калининград, Екатеринбург. Люки делаем на собственном производстве и сами везём их на объект на специальном прицепе. Монтаж ведёт наша команда.</p>
     <p class="lid-lead" style="margin-top:16px">Каждый погреб для нас отдельный проект, сделанный с заботой о коллекции и вниманием к образу жизни владельца. Мы уверены, что хорошее вино заслуживает лучшего места.</p>
     <div class="hero-actions"><a class="btn btn-wine" href="contacts.html">Обсудить ваш погреб</a><a class="btn btn-line" href="objects.html">Смотреть объекты</a></div>
   </div>
@@ -216,7 +216,7 @@ o+='''<section class="sec" style="padding-top:0"><div class="wrap">
   <div class="geo">
     <h4>Где стоят наши погреба</h4>
     <div>
-      <ul class="cities"><li>Москва</li><li>Подмосковье</li><li>Санкт-Петербург</li><li>Сочи</li><li>Калининград</li><li>Екатеринбург</li><li>Саратов</li><li>Ростов-на-Дону</li></ul>
+      <ul class="cities"><li>Москва</li><li>Подмосковье</li><li>Санкт-Петербург</li><li>Сочи</li><li>Калининград</li><li>Екатеринбург</li><li>Саратов</li></ul>
       <p class="geo-note">Среди объектов есть музей-усадьба «Белая Дача» с прямоугольным люком. В 2024 году мы показывали автоматический люк на выставке «Виноиндустрия» в Санкт-Петербурге.</p>
     </div>
   </div>
@@ -232,7 +232,7 @@ o+='''<section class="sec" style="padding-top:0"><div class="wrap">
   ('media/kh-st2.jpg','Лестница до отделки, Хоста'),
   ('media/ekb-1.jpg','Рама люка, Екатеринбург'),
   ('media/kaliningrad-mount.jpg','Рама люка, Калининград'),
-  ('media/kh-st3.jpg','Проверка подсветки, Хоста'),
+  ('media/kh-st3.jpg','Выставляем ряд по уровню, Хоста'),
   ('media/mount-glass.jpg','Ставим стекло люка, Подмосковье'),
   ('media/ostr-4.jpg','Стекло в черновом полу, Подмосковье'),
 ])+'''  </div>
