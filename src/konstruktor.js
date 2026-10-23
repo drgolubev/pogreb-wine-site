@@ -12,11 +12,11 @@
   var WOOD = { 'leather': '#3a302b', 'oak': '#b88752' };
   var GLASS = { clear: 'rgba(205,228,235,.12)', bronze: 'rgba(122,68,24,.52)', grey: 'rgba(58,62,66,.55)' };
   var MECH_PHOTO = {
-    lift: ['media/hero-hatch-open-poster.jpg', 'Лифтовый механизм с осевым вращением: половина стекла прокручивается под вторую'],
-    hinge: ['media/k-hinge.jpg', 'Актуатор с обратной петлёй: половина стекла поднята']
+    lift: ['media/hero-hatch-open-poster.jpg', 'Лифтовый механизм с осевым вращением: половина стекла опускается и проворачивается под вторую'],
+    hinge: ['media/k-hinge.jpg', 'Актуатор с обратной петлёй: половина стекла поднята на петле']
   };
   var MECH_VIDEO = {
-    lift: ['media/hero-hatch-open.mp4', 'Лифтовый механизм с осевым вращением: стекло приподнимается, и половина люка прокручивается под вторую']
+    lift: ['media/hero-hatch-open.mp4', 'Лифтовый механизм с осевым вращением: половина стекла опускается и проворачивается под вторую']
   };
   var CTRL_PHOTO = {
     panel: 'media/k-panel.jpg', remote: 'media/k-remote.jpg', finger: 'media/k-finger.jpg', smart: 'media/k-panel.jpg'
@@ -226,9 +226,9 @@
     var glass = el('g', { 'class': 'kz-cut-glass' }, svg);
     var tr = '';
     if (c.mech === 'lift' && open) {
-      // половина приподнялась на пару миллиметров, вторая прокрутилась и ушла под неё
-      el('rect', { x: gx + gw / 2, y: fy - 3, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5, opacity: .85 }, glass);
-      el('rect', { x: gx + gw / 2, y: fy - 9, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5 }, glass);
+            // половина опустилась и провернулась под вторую, которая осталась вровень с полом
+      el('rect', { x: gx + gw / 2, y: fy + 3, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5, opacity: .85 }, glass);
+      el('rect', { x: gx + gw / 2, y: fy - 5, width: gw / 2, height: 7, fill: gcol, stroke: '#c9c3bc', 'stroke-width': 1.5 }, glass);
       var arr = el('path', { d: 'M' + (gx + gw * .2) + ' ' + (fy - 22) + 'Q' + (gx + gw / 2) + ' ' + (fy - 46) + ' ' + (gx + gw * .8) + ' ' + (fy - 22), fill: 'none', stroke: '#e8b45a', 'stroke-width': 1.5, 'stroke-dasharray': '4 4' }, glass);
       el('path', { d: 'M' + (gx + gw * .8 - 7) + ' ' + (fy - 29) + 'l7 7l-9 2', fill: 'none', stroke: '#e8b45a', 'stroke-width': 1.5 }, glass);
     } else if (c.mech === 'hinge' && open) {

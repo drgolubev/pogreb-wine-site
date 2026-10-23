@@ -112,6 +112,13 @@
     li.addEventListener('mouseleave', function(){ focusPart(null); });
     li.addEventListener('click', function(){ focusPart(li.dataset.part); });
   });
+  // на телефоне подсвечиваем ту часть, до строки которой долистали
+  if (svg && 'IntersectionObserver' in window && matchMedia('(max-width:980px)').matches) {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting) focusPart(e.target.dataset.part); });
+    }, { rootMargin: '-58% 0px -36% 0px' });
+    items.forEach(function(li){ io.observe(li); });
+  }
   if (svg) svg.querySelectorAll('.hs').forEach(function(h){
     h.addEventListener('mouseenter', function(){ focusPart(h.dataset.part); });
     h.addEventListener('mouseleave', function(){ focusPart(null); });
