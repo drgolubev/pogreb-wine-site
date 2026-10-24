@@ -42,7 +42,7 @@ mz+='''<section class="sec" style="padding-top:0"><div class="wrap passport">
     <li><figure><img src="media/top-hatch.jpg" alt="Вид сверху сквозь стекло люка на лестницу" loading="lazy"></figure><span class="st-n">05</span><h3>Готово</h3><p>Стекло триплекс, подсветка, дубовые ступени. После сдачи ресторан открыл новое винное пространство.</p></li>
   </ol>
 </div></section>
-<section class="inside" aria-label="Спуск в погреб Панинотеки"><div class="inside-media"><video src="media/inside-descent.mp4" poster="media/inside-descent-poster.jpg" muted loop playsinline preload="metadata" aria-label="Спуск по лестнице мимо ниш с вином и шампанским"></video></div><div class="wrap inside-copy"><h2>Внутри погреба Панинотеки</h2><p>Дубовые ступени, ниши для бутылок, ящиков и шампанского по всей спирали, бар внизу. Подсветка 4000 К показывает этикетки и не греет вино.</p></div></section>
+<section class="inside" aria-label="Спуск в погреб Панинотеки"><div class="inside-media"><video src="media/inside-descent.mp4" poster="media/inside-descent-poster.jpg" muted loop playsinline preload="metadata" aria-label="Спуск по лестнице мимо ниш с вином и шампанским"></video></div><div class="wrap inside-copy"><h2>Внутри погреба Панинотеки</h2><p>Дубовые ступени, ниши для бутылок, ящиков и шампанского по всей спирали, бар внизу.</p></div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
   <div class="sec-head"><div><span class="kicker">Фото</span><h2>Погреб в жизни ресторана</h2></div><p>Листайте в сторону.</p></div>
   <div class="strip" id="strip" tabindex="0" aria-label="Фото Панинотеки, листайте в сторону">
