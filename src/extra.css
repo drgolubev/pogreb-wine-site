@@ -416,3 +416,7 @@ html.kz-lock{overflow:hidden}
   .cmp-a::before{content:"Погреб";color:var(--claret-text)}
   .cmp-b::before{content:"Винный шкаф";color:var(--ash)}
 }
+
+/* видео и фото героя не вылезают за свой блок при наезде и параллаксе (иначе по краю видна полоска) */
+.hero-bg,.page-hero .hero-bg{overflow:hidden}
+.hero-bg > video,.hero-bg > img{position:relative;height:116%;top:-8%}
