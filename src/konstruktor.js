@@ -67,7 +67,70 @@
     var x = hex2rgb(a), y = hex2rgb(b);
     return 'rgb(' + Math.round(x[0] + (y[0] - x[0]) * t) + ',' + Math.round(x[1] + (y[1] - x[1]) * t) + ',' + Math.round(x[2] + (y[2] - x[2]) * t) + ')';
   }
+  /* прямоугольный люк: прямая лестница вниз в винную комнату */
+  function drawRoomPit(c, depth) {
+    var svg = el('svg', { viewBox: '-200 -200 400 400', preserveAspectRatio: 'none', 'aria-hidden': 'true' });
+    var defs = el('defs', {}, svg);
+    var SH = 34;
+    function F(d) { return 1 / (1 + 0.62 * d); }
+    function Y(d) { return SH * d; }
+    // точка в комнате: xr, yr от -1 до 1 по ширине и длине проёма, d глубина
+    function P(xr, yr, d) { return [xr * 200 * F(d), Y(d) + yr * 200 * F(d)]; }
+    function poly(pts, attrs, parent) { attrs.points = pts.map(function (q) { return q[0].toFixed(1) + ',' + q[1].toFixed(1); }).join(' '); return el('polygon', attrs, parent || svg); }
+    var lg = el('radialGradient', { id: 'kzRLight', cx: 0, cy: Y(depth), r: 230, gradientUnits: 'userSpaceOnUse' }, defs);
+    el('stop', { offset: 0, 'stop-color': '#ffb460', 'stop-opacity': '.45' }, lg);
+    el('stop', { offset: 1, 'stop-color': '#ffb460', 'stop-opacity': '0' }, lg);
+    function wallCol(d) { var t = d / 3.2; return t < .45 ? mix('#f1e7d8', '#c39a6e', t / .45) : mix('#c39a6e', '#3b2518', (t - .45) / .55); }
+    // стены комнаты слоями сверху вниз
+    for (var d = 0; d <= depth + 0.001; d += 0.06) {
+      poly([P(-1, -1, d), P(1, -1, d), P(1, 1, d), P(-1, 1, d)], { fill: wallCol(d) });
+    }
+    // пол комнаты: дубовые доски
+    var fd = depth;
+    poly([P(-1, -1, fd), P(1, -1, fd), P(1, 1, fd), P(-1, 1, fd)], { fill: shade(WOOD.oak, .5, true) });
+    for (var k = -0.8; k < 1; k += 0.2) {
+      var a1 = P(k, -1, fd), a2 = P(k, 1, fd);
+      el('line', { x1: a1[0], y1: a1[1], x2: a2[0], y2: a2[1], stroke: 'rgba(30,15,6,.35)', 'stroke-width': .8 }, svg);
+    }
+    // винные стеллажи на боковых стенах
+    for (var r = 0.25; r < depth - 0.35; r += 0.32) {
+      [-1, 1].forEach(function (side) {
+        var k2 = 1 - 0.6 * (r / 3);
+        for (var y = -0.95; y < 0.6; y += 0.2) {
+          var q = [P(side, y, r), P(side, y + 0.17, r), P(side, y + 0.17, r + 0.24), P(side, y, r + 0.24)];
+          poly(q, { fill: shade('#22140d', k2) });
+          var m = P(side, y + 0.085, r + 0.12), dm = F(r + 0.12);
+          el('circle', { cx: m[0] - side * 3 * dm, cy: m[1], r: 3.6 * dm, fill: BOTTLES[Math.round((y + 1) * 5 + r * 10) % BOTTLES.length] }, svg);
+        }
+      });
+    }
+    // прямая лестница от дальнего края вниз к ближней стороне
+    var N = Math.round(depth / 0.19), wood = WOOD[c.wood], leather = c.wood === 'leather';
+    var x0 = -0.42, x1 = 0.42, run = 1.75;
+    for (var i = N - 1; i >= 0; i--) {
+      var d0 = (i + 1) * depth / (N + 1), d1 = (i + 2) * depth / (N + 1);
+      var y0 = -1 + run * i / N, y1 = -1 + run * (i + 1) / N;
+      var k3 = 1 - 0.6 * (d0 / 3);
+      // подступенок
+      poly([P(x0, y1, d0), P(x1, y1, d0), P(x1, y1, d1), P(x0, y1, d1)], { fill: shade(leather ? '#e6ddd0' : wood, k3 * .55, true) });
+      // проступь
+      poly([P(x0, y0, d0), P(x1, y0, d0), P(x1, y1, d0), P(x0, y1, d0)], { fill: shade(leather ? '#e6ddd0' : wood, k3, true) });
+      if (leather) {
+        poly([P(x0 + .06, y0 + .015, d0), P(x1 - .06, y0 + .015, d0), P(x1 - .06, y1 - .02, d0), P(x0 + .06, y1 - .02, d0)], { fill: shade(wood, k3, true) });
+      }
+      var e1 = P(x0, y0, d0), e2 = P(x1, y0, d0);
+      el('line', { x1: e1[0], y1: e1[1], x2: e2[0], y2: e2[1], stroke: '#fff4e4', 'stroke-width': 1.2, opacity: .55 * k3 }, svg);
+    }
+    // поручень
+    var h1 = P(x1 + .04, -1, 0.05), h2 = P(x1 + .04, -1 + run, depth * .92);
+    el('line', { x1: h1[0], y1: h1[1], x2: h2[0], y2: h2[1], stroke: '#d9d4cd', 'stroke-width': 2.4, 'stroke-linecap': 'round' }, svg);
+    el('rect', { x: -200, y: -200, width: 400, height: 400, fill: 'url(#kzRLight)' }, svg);
+    el('rect', { x: -197, y: -197, width: 394, height: 394, fill: 'none', stroke: '#ffe6bb', 'stroke-width': 4, opacity: .75 }, svg);
+    return svg;
+  }
+
   function drawPit(c, depth) {
+    if (c.shape === 'rect') return drawRoomPit(c, depth);
     var oval = c.shape === 'oval', rect = c.shape === 'rect';
     var W = oval ? 540 : 400, H = 400;
     var svg = el('svg', { viewBox: (-W / 2) + ' ' + (-H / 2) + ' ' + W + ' ' + H, preserveAspectRatio: 'none', 'aria-hidden': 'true' });
@@ -202,11 +265,22 @@
       }
     }
     el('rect', { x: sx, y: fy, width: sw, height: bot - fy, fill: 'url(#kzGlow)' }, svg);
-    // ступени: задние, колонна, передние
+    // ступени: задние, колонна, передние; у прямоугольного люка прямая лестница без колонны
     var wood = WOOD[c.wood], N = Math.round(depth / 0.2), Rr = sw / 2 - 4;
     var back = el('g', {}, svg);
-    el('rect', { x: cx - 9, y: fy, width: 18, height: bot - fy, fill: '#e8e0d6' }, svg);
+    if (c.shape !== 'rect') el('rect', { x: cx - 9, y: fy, width: 18, height: bot - fy, fill: '#e8e0d6' }, svg);
     var front = el('g', {}, svg);
+    if (c.shape === 'rect') {
+      var NS = Math.round(depth / 0.19), stx = (sw - 20) / NS, sty = (bot - fy - 8) / (NS + 1), pts = [];
+      for (var s = 0; s <= NS; s++) {
+        var xx0 = sx + 6 + s * stx, yy0 = fy + 8 + s * sty;
+        pts.push(xx0 + ',' + yy0, (xx0 + stx) + ',' + yy0);
+      }
+      pts.push((sx + sw - 6) + ',' + (bot - 8), (sx + 6) + ',' + (bot - 8));
+      el('polygon', { points: pts.join(' '), fill: shade(wood, .55, true) }, front);
+      for (var s2 = 0; s2 < NS; s2++) el('rect', { x: sx + 6 + s2 * stx, y: fy + 8 + (s2 + 1) * sty - 4, width: stx + 2, height: 5, fill: shade(wood, 1, true) }, front);
+      N = 0;
+    }
     for (var i = 0; i < N; i++) {
       var th = (i * 27 + 95) * Math.PI / 180;
       var sy = fy + (i + 1) * (depth * S) / (N + 1);

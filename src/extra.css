@@ -289,7 +289,7 @@ a.beer:hover{border-color:var(--claret)}
 .kz-stage[data-shape="rect"] .kz-g2{border-radius:0 0 3px 3px}
 .kz-g1{transform-origin:50% 100%}
 .kz-stage.is-open[data-mech="hinge"] .kz-g1{transform:rotateX(-80deg)}
-.kz-stage.is-open[data-mech="lift"] .kz-g2{transform:translateZ(-.6cqw) rotateZ(-180deg)}
+.kz-stage.is-open[data-mech="lift"] .kz-g2{transform:translateZ(-3px) rotateZ(-180deg)}
 .kz-room-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 40% 24% at 50% 52%,rgba(255,176,94,.28),transparent 70%);opacity:.5;transition:opacity 1.2s}
 .kz-stage.is-open .kz-room-glow{opacity:1}
 .kz-cut{background:linear-gradient(#150d0e,#0c0708)}
@@ -420,3 +420,8 @@ html.kz-lock{overflow:hidden}
 /* видео и фото героя не вылезают за свой блок при наезде и параллаксе (иначе по краю видна полоска) */
 .hero-bg,.page-hero .hero-bg{overflow:hidden}
 .hero-bg > video,.hero-bg > img{position:relative;height:116%;top:-8%}
+
+/* стекло чуть над колодцем: ушедшая вниз половина должна оставаться над рисунком, иначе на видеокарте она пропадает */
+.kz-glass{transform:translateZ(7px)}
+.kz-g1{transform:rotateX(0deg)}
+.kz-g2{transform:translateZ(0px) rotateZ(0deg)}
