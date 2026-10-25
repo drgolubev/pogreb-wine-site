@@ -140,10 +140,10 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
   </div>
 </div></section>
 <section class="sec" style="padding-top:0"><div class="wrap">
-  <div class="sec-head"><div><span class="kicker">Выставки</span><h2>Виноиндустрия 2024, Санкт-Петербург</h2></div><p>Привезли на выставку настоящий погреб со стеклянным люком и этажерку. Гости спускались по лестнице и смотрели, как всё устроено.</p></div>
+  <div class="sec-head"><div><span class="kicker">Выставки</span><h2>Виноиндустрия 2024, Санкт-Петербург</h2></div><p>Главным на стенде был наш автоматический стеклянный люк: гости открывали его касанием и смотрели, как работает механизм. Под стеклом мы положили фото погреба, чтобы было видно, как люк выглядит над настоящей лестницей. Рядом стояла этажерка.</p></div>
   <div class="expo">
-    <figure class="expo-v"><video src="media/expo.mp4" poster="media/expo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Стенд ПОGREB WINE на выставке, открытый люк погреба"></video></figure>
-    <figure class="expo-w"><img src="media/expo-stand.jpg" alt="Стенд ПОGREB WINE на выставке Виноиндустрия 2024"><figcaption>Стенд с погребом в полу</figcaption></figure>
+    <figure class="expo-v"><video src="media/expo.mp4" poster="media/expo-poster.jpg" muted loop playsinline preload="metadata" aria-label="Стенд ПОGREB WINE на выставке, автоматический стеклянный люк"></video></figure>
+    <figure class="expo-w"><img src="media/expo-stand.jpg" alt="Стенд ПОGREB WINE на выставке Виноиндустрия 2024"><figcaption>Стенд с автоматическим люком</figcaption></figure>
     <figure class="expo-v"><img src="media/expo-bar.jpg" alt="Этажерка и витрина на стенде ПОGREB WINE"><figcaption>Этажерка и витрина</figcaption></figure>
   </div>
 </div></section>
