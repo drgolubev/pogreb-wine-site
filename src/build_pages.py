@@ -55,7 +55,7 @@ FOOT='''<footer class="foot">
       <a href="https://t.me/pogrebwine" target="_blank" rel="noopener">Telegram</a>
     </div>
   </div>
-  <div class="wrap foot-bottom"><span>© ПОGREB WINE</span><a href="contacts.html">Рассчитать погреб</a></div>
+  <div class="wrap foot-bottom"><span>© ПОGREB WINE · ИП Голубев Роман Николаевич · ИНН 645402896405 · ОГРНИП 323645700011801</span><span class="foot-links"><a href="politika.html">Политика конфиденциальности</a><a href="contacts.html">Рассчитать погреб</a></span></div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -73,7 +73,7 @@ def strip_head(sec):
     # remove the sec-head block (first <div class="sec-head">...</div>\n      </div>) — used when page hero already states it
     return sec
 SITE='https://pogreb-wine.ru/'
-ORG={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":SITE+"#org","name":"ПОGREB WINE","alternateName":["Погреб Вайн","Pogreb Wine","ПОГРЕБ WINE","Погреб Wine"],"url":SITE,"logo":SITE+"media/top-hatch.jpg","image":SITE+"media/hatch-open.jpg","description":"Спиральные винные погреба под полом дома со стеклянным автоматическим люком, автоматические винные этажерки. Производство и монтаж по всей России.","telephone":["+7 917 205-70-00","+7 927 157-58-88"],"address":{"@type":"PostalAddress","streetAddress":"ул. Кособокова, 40","addressLocality":"Саратов","addressRegion":"Саратовская область","addressCountry":"RU"},"areaServed":["Москва","Московская область","Санкт-Петербург","Сочи","Калининград","Екатеринбург","Саратов","Россия"],"founder":{"@type":"Person","name":"Роман Голубев","jobTitle":"Директор"},"sameAs":["https://t.me/pogrebwine"],"priceRange":"от 3 500 000 ₽"}
+ORG={"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","@id":SITE+"#org","name":"ПОGREB WINE","alternateName":["Погреб Вайн","Pogreb Wine","ПОГРЕБ WINE","Погреб Wine"],"url":SITE,"logo":SITE+"media/top-hatch.jpg","image":SITE+"media/hatch-open.jpg","description":"Спиральные винные погреба под полом дома со стеклянным автоматическим люком, автоматические винные этажерки. Производство и монтаж по всей России.","telephone":["+7 917 205-70-00","+7 927 157-58-88"],"address":{"@type":"PostalAddress","streetAddress":"ул. Кособокова, 40","addressLocality":"Саратов","addressRegion":"Саратовская область","addressCountry":"RU"},"areaServed":["Москва","Московская область","Санкт-Петербург","Сочи","Калининград","Екатеринбург","Саратов","Россия"],"legalName":"ИП Голубев Роман Николаевич","taxID":"645402896405","founder":{"@type":"Person","name":"Роман Голубев","jobTitle":"Директор"},"sameAs":["https://t.me/pogrebwine"],"priceRange":"от 3 500 000 ₽"}
 PAGES=[]
 def crumbs_ld(items):
     return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,"item":SITE+(h if h!='index.html' else '')} for i,(h,n) in enumerate(items)]}

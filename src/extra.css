@@ -435,3 +435,9 @@ html.kz-lock{overflow:hidden}
 .foot-bottom::before{content:"";position:absolute;top:0;left:var(--gutter);right:var(--gutter-r);border-top:1px solid var(--line)}
 @media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px 24px}.foot-brand,.foot-col:last-child{grid-column:1/-1}}
 @media (max-width:340px){.foot-grid{grid-template-columns:1fr}}
+
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+.form-foot small a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:700px){.foot-bottom{flex-direction:column}}
+.c-req .c-v{font:400 var(--step-0)/1.6 var(--f-text);color:var(--ash)}
+@media (max-width:480px){.c-item .c-v{font-size:1.3rem}.c-req .c-v{font-size:.92rem}}
