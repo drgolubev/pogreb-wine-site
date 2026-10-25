@@ -425,3 +425,13 @@ html.kz-lock{overflow:hidden}
 .kz-glass{transform:translateZ(7px)}
 .kz-g1{transform:rotateX(0deg)}
 .kz-g2{transform:translateZ(0px) rotateZ(0deg)}
+
+/* подвал: колонки вместо строки, которая переносилась криво */
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:40px;align-items:start;font-size:var(--step--1);color:var(--ash)}
+.foot-brand p{margin-top:16px;max-width:30ch;line-height:1.55}
+.foot-col{display:flex;flex-direction:column;gap:10px}
+.foot-k{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bone);opacity:.6;margin-bottom:4px}
+.foot-bottom{position:relative;display:flex;justify-content:space-between;gap:16px;margin-top:40px;padding-top:24px;font-size:.8rem;color:var(--ash)}
+.foot-bottom::before{content:"";position:absolute;top:0;left:var(--gutter);right:var(--gutter-r);border-top:1px solid var(--line)}
+@media (max-width:900px){.foot-grid{grid-template-columns:1fr 1fr;gap:32px 24px}.foot-brand,.foot-col:last-child{grid-column:1/-1}}
+@media (max-width:340px){.foot-grid{grid-template-columns:1fr}}

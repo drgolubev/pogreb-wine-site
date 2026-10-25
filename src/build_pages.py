@@ -35,13 +35,27 @@ def header(active):
 CTA='''<section class="cta-strip"><div class="wrap cta-row"><div><span class="kicker">Расчёт стоимости</span><h2>Мы вам перезвоним и расскажем стоимость</h2><p>Оставьте телефон: ответим на вопросы, подскажем, какой погреб подойдёт вашему дому, и назовём цену.</p></div><div class="cta-actions"><a class="btn btn-wine" href="contacts.html">Оставить заявку</a><a class="btn btn-line" href="tel:+79172057000">+7 917 205-70-00</a></div></div></section>
 '''
 FOOT='''<footer class="foot">
-  <div class="wrap foot-row">
-    <a class="brand" href="index.html">ПО<b>G</b>REB WINE</a>
-    <span>Спиральные винные погреба по всей России и не только</span>
-    <span>Саратов, ул. Кособокова, 40</span>
-    <a href="journal.html">Журнал</a>
-    <a href="https://t.me/pogrebwine" target="_blank" rel="noopener">Telegram</a>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="index.html">ПО<b>G</b>REB WINE</a>
+      <p>Спиральные винные погреба и автоматические этажерки. По всей России и не только.</p>
+    </div>
+    <nav class="foot-col" aria-label="Разделы">
+      <span class="foot-k">Разделы</span>
+      <a href="about.html">О погребе</a><a href="pogreb.html">Устройство</a><a href="etazherki.html">Этажерки</a><a href="objects.html">Объекты</a>
+    </nav>
+    <nav class="foot-col" aria-label="Ещё">
+      <span class="foot-k">Ещё</span>
+      <a href="price.html">Стоимость</a><a href="konstruktor.html">Конструктор</a><a href="journal.html">Журнал</a><a href="architects.html">Архитекторам</a>
+    </nav>
+    <div class="foot-col">
+      <span class="foot-k">Контакты</span>
+      <a href="tel:+79172057000">+7 917 205-70-00</a><a href="tel:+79271575888">+7 927 157-58-88</a>
+      <span>Саратов, ул. Кособокова, 40</span>
+      <a href="https://t.me/pogrebwine" target="_blank" rel="noopener">Telegram</a>
+    </div>
   </div>
+  <div class="wrap foot-bottom"><span>© ПОGREB WINE</span><a href="contacts.html">Рассчитать погреб</a></div>
 </footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
