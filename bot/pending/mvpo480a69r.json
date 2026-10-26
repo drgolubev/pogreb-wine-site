@@ -14,7 +14,8 @@
    "replace": "Остались вопросы? Позвоните"
   }
  ],
- "status": "published",
+ "status": "reverted",
  "published_at": "2026-10-26T19:48:22.587Z",
- "commit": "26f0d132acecb678a61c9a26437c52c419576729"
+ "commit": "b5c5843836496aef29812b325608920bd72c0e3b",
+ "reverted_at": "2026-10-26T19:53:48.255Z"
 }
