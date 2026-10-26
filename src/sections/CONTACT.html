@@ -28,6 +28,7 @@
             <div class="field"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7" required><span class="err" id="e-phone"></span></div>
             <div class="field"><label for="f-city">Город</label><input id="f-city" name="city" autocomplete="address-level2"><span class="err"></span></div>
             <div class="field"><label for="f-stage">Объект</label><select id="f-stage" name="stage"><option>Дом строится</option><option>Дом уже построен</option><option>Ресторан или бар</option><option>Пока выбираю</option></select><span class="err"></span></div>
+            <div class="hp" aria-hidden="true"><label for="f-web">Сайт</label><input id="f-web" name="website" tabindex="-1" autocomplete="off"></div>
             <div class="field full"><label for="f-msg">Коллекция, пожелания, вопросы</label><textarea id="f-msg" name="msg" placeholder="Например: около 1 000 бутылок, люк в гостиной, нужен отпечаток пальца"></textarea></div>
           </div>
           <div class="form-foot">
@@ -36,8 +37,8 @@
           </div>
         </div>
         <div class="done" id="formDone" hidden>
-          <h3>Заявка готова</h3>
-          <p>Скопируйте текст и отправьте нам в Telegram или на почту, либо позвоните, и мы всё обсудим.</p>
+          <h3 id="doneTitle">Заявка готова</h3>
+          <p id="doneText">Скопируйте текст и отправьте нам в Telegram или на почту, либо позвоните, и мы всё обсудим.</p>
           <pre id="leadText"></pre>
           <div class="done-actions">
             <button class="btn btn-wine" type="button" id="copyLead">Скопировать заявку</button>

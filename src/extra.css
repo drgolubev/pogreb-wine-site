@@ -441,3 +441,6 @@ html.kz-lock{overflow:hidden}
 @media (max-width:700px){.foot-bottom{flex-direction:column}}
 .c-req .c-v{font:400 var(--step-0)/1.6 var(--f-text);color:var(--ash)}
 @media (max-width:480px){.c-item .c-v{font-size:1.3rem}.c-req .c-v{font-size:.92rem}}
+
+/* ловушка для спам-ботов: поле не видно людям */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}

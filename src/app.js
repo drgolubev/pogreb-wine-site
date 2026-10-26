@@ -199,6 +199,7 @@
   document.querySelectorAll('.copy').forEach(function(b){ b.addEventListener('click', function(){ copyText(b.dataset.copy, 'Скопировано'); }); });
 
   /* lead form */
+  var LEAD_URL = 'https://n8n.denzza.online/webhook/pogreb-lead';
   var form = document.getElementById('leadForm');
   if (form) {
   if (form.dataset.role === 'architect') { var ra = document.getElementById('r-arch'); if (ra) ra.checked = true; }
@@ -219,11 +220,30 @@
     lines.push('Объект: ' + val('f-stage'));
     if (val('f-msg')) lines.push('Пожелания: ' + val('f-msg'));
     out.textContent = lines.join('\n');
-    body.hidden = true; done.hidden = false;
-    if (hasGsap) ScrollTrigger.refresh();
+    var btn = form.querySelector('button[type="submit"]');
+    var show = function (sent) {
+      document.getElementById('doneTitle').textContent = sent ? 'Заявка отправлена' : 'Заявка готова';
+      document.getElementById('doneText').textContent = sent
+        ? 'Спасибо! Мы получили заявку и перезвоним вам в рабочее время. Если удобнее, позвоните сами.'
+        : 'Не получилось отправить автоматически. Скопируйте текст и отправьте нам в Telegram или на почту, либо позвоните.';
+      document.getElementById('copyLead').hidden = sent;
+      body.hidden = true; done.hidden = false;
+      if (btn) { btn.disabled = false; btn.textContent = btnText; }
+      if (hasGsap) ScrollTrigger.refresh();
+    };
+    var btnText = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Отправляю…'; }
+    // заявка уходит в n8n, оттуда в Telegram; если сервер недоступен, показываем текст для копирования
+    var payload = { name: name, phone: phone, city: val('f-city'), stage: val('f-stage'), role: role, msg: val('f-msg'), website: val('f-web'), page: location.pathname.split('/').pop() || 'index.html' };
+    var timer = null, ctrl = ('AbortController' in window) ? new AbortController() : null;
+    if (ctrl) timer = setTimeout(function () { ctrl.abort(); }, 12000);
+    fetch(LEAD_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) { clearTimeout(timer); show(!!(j && j.ok)); })
+      .catch(function () { clearTimeout(timer); show(false); });
   });
   document.getElementById('copyLead').addEventListener('click', function(){ copyText(out.textContent, 'Заявка скопирована'); });
-  document.getElementById('editLead').addEventListener('click', function(){ done.hidden = true; body.hidden = false; document.getElementById('f-name').focus(); });
+  document.getElementById('editLead').addEventListener('click', function(){ done.hidden = true; body.hidden = false; document.getElementById('copyLead').hidden = false; document.getElementById('f-name').focus(); });
   }
 
   /* page transitions between site pages */
