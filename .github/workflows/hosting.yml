@@ -1,0 +1,41 @@
+name: Выкладка на основной сайт pogreb-wine.ru
+# Запускается, когда бот по кнопке «Выложить на основной сайт» обновляет publish/hosting.json,
+# или вручную: Actions → этот процесс → Run workflow.
+# Доступ к хостингу берётся из Settings → Secrets → Actions: FTP_SERVER, FTP_USER, FTP_PASSWORD,
+# FTP_DIR (папка сайта на хостинге, со слэшем на конце), FTP_PROTOCOL (необязательно: ftps по умолчанию или ftp).
+on:
+  push:
+    branches: [main]
+    paths: ['publish/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hosting
+  cancel-in-progress: false
+jobs:
+  hosting:
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    steps:
+      - name: Проверить доступ к хостингу
+        if: env.FTP_SERVER == ''
+        run: |
+          echo "Не заданы секреты FTP_SERVER / FTP_USER / FTP_PASSWORD / FTP_DIR, выкладывать некуда"
+          exit 1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Собрать сайт
+        run: pip install pillow pillow-heif && python build.py
+      - name: Залить на хостинг
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL || 'ftps' }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_DIR }}
