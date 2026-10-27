@@ -108,7 +108,7 @@ ANAT_IDX=S['ANATOMY'].replace('{{DIAGRAM}}',D).replace(' style="padding-top:0"',
 KZ_TEASE='''<section class="sec" style="padding-top:0"><div class="wrap kz-tease"><a class="kz-tease-media" href="konstruktor.html" aria-label="Открыть конструктор погреба"><img src="media/kz-preview.jpg" alt="Конструктор погреба: круглый люк открыт, видна винтовая лестница и ниши с вином" loading="lazy"><span class="kz-tease-tag">Онлайн</span></a><div><span class="kicker">Конструктор</span><h2>Соберите свой погреб за пару минут</h2><p class="lid-lead">Выберите форму люка, механизм, цвет стекла, глубину и дерево ступеней. Рисунок меняется вместе с выбором, а люк открывается прямо на экране. Готовую сборку отправьте нам, и мы назовём цену.</p><div class="hero-actions"><a class="btn btn-wine" href="konstruktor.html">Открыть конструктор</a></div></div></div></section>
 '''
 idx=fix(S['HERO'])+S['IRIS']+S['COMPARE']+ANAT_IDX+INSIDE+tease+KZ_TEASE+ETZ_TEASE+CTA
-doc('index.html','ПОGREB WINE','Спиральные винные погреба под полом дома со стеклянным автоматическим люком. От 3,5 млн ₽, 800–3 500 бутылок, монтаж до 10 дней.',idx,'index.html',first=True,ld=PROD_LD)
+doc('index.html','ПОGREB WINE — спиральные винные погреба под полом дома','Спиральные винные погреба под полом дома со стеклянным автоматическим люком. От 3,5 млн ₽, 800–3 500 бутылок, монтаж до 10 дней.',idx,'index.html',first=True,ld=PROD_LD)
 
 # ---------- pogreb ----------
 LIFT='''<section class="sec" style="padding-top:0"><div class="wrap lift">
