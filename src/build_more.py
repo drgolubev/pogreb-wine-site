@@ -190,6 +190,25 @@ pol += '<section class="sec" style="padding-top:0"><div class="wrap"><article cl
 doc('politika.html', 'Политика конфиденциальности — ПОGREB WINE', 'Политика обработки персональных данных ИП Голубев Роман Николаевич на сайте ПОGREB WINE по 152-ФЗ.', pol, '',
     ld=[crumbs_ld([('index.html', 'Главная'), ('politika.html', 'Политика конфиденциальности')])])
 
+# ---------- страница 404 и перенаправления со старого сайта (Креатиум) ----------
+nf = page_hero('Страница не найдена', 'Такой страницы нет', 'Возможно, вы перешли по старой ссылке: сайт ПОGREB WINE обновился. Всё о погребах, объектах и ценах теперь здесь.')
+nf += ('<section class="sec" style="padding-top:0"><div class="wrap"><div class="cta-actions" style="justify-content:flex-start;flex-wrap:wrap;gap:12px">'
+       '<a class="btn btn-wine" href="index.html">На главную</a><a class="btn btn-line" href="objects.html">Объекты</a>'
+       '<a class="btn btn-line" href="price.html">Стоимость</a><a class="btn btn-line" href="contacts.html">Контакты</a></div></div></section>\n')
+doc('404.html', 'Страница не найдена — ПОGREB WINE', 'Такой страницы нет на сайте ПОGREB WINE.', nf, '')
+PAGES.remove('404.html')
+_p = os.path.join(OUT, '404.html')
+_h = open(_p, encoding='utf-8').read().replace('<head>', '<head><base href="/"><meta name="robots" content="noindex">', 1)
+open(_p, 'w', encoding='utf-8').write(_h)
+OLD = [('Главная', ''), ('О-нас', 'about.html'), ('О-погребах', 'about.html'), ('Каталог', 'price.html'),
+       ('Партнеры', 'architects.html'), ('Партнёры', 'architects.html'), ('Контакты', 'contacts.html')]
+ht = ['# Сайт ПОGREB WINE. Файл собирается автоматически (src/build_more.py), руками не править.', 'ErrorDocument 404 /404.html', '<IfModule mod_alias.c>']
+for old, new in OLD:
+    for v in sorted({old, old.lower()}):
+        ht.append('RedirectMatch 301 "^/' + v + '/?$" /' + new)
+ht.append('</IfModule>')
+open(os.path.join(OUT, '.htaccess'), 'w', encoding='utf-8').write('\n'.join(ht) + '\n')
+
 # ---------- sitemap / robots ----------
 pri={'index.html':'1.0','pogreb.html':'0.9','price.html':'0.9','objects.html':'0.9','contacts.html':'0.8','architects.html':'0.8','journal.html':'0.7','konstruktor.html':'0.8'}
 sm='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
