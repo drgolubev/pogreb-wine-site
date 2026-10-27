@@ -34,3 +34,32 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+  hosting:
+    # Заливка на хостинг pogreb-wine.ru по FTP. Включается сама, когда в Settings → Secrets → Actions
+    # заданы FTP_SERVER, FTP_USER, FTP_PASSWORD и FTP_DIR (папка сайта на хостинге, со слэшем на конце).
+    runs-on: ubuntu-latest
+    env:
+      FTP_SERVER: ${{ secrets.FTP_SERVER }}
+    steps:
+      - uses: actions/checkout@v4
+        if: env.FTP_SERVER != ''
+      - uses: actions/setup-python@v5
+        if: env.FTP_SERVER != ''
+        with:
+          python-version: '3.12'
+      - name: Собрать сайт
+        if: env.FTP_SERVER != ''
+        run: pip install pillow pillow-heif && python build.py
+      - name: Залить на хостинг
+        if: env.FTP_SERVER != ''
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ secrets.FTP_PROTOCOL || 'ftps' }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.FTP_DIR }}
+      - name: Хостинг ещё не подключён
+        if: env.FTP_SERVER == ''
+        run: echo "FTP_SERVER не задан, заливка на хостинг пропущена"
