@@ -14,5 +14,7 @@
    "replace": "Остались вопросы? Позвоните"
   }
  ],
- "status": "pending"
+ "status": "published",
+ "published_at": "2026-10-27T19:58:17.574Z",
+ "commit": "3d6d6528fe7d560ece3b75356aa54e50c0019611"
 }
