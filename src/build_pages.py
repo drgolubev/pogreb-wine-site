@@ -10,6 +10,8 @@ ARTIFACT=os.environ.get('ARTIFACT')=='1'
 os.makedirs(OUT,exist_ok=True)
 # Яндекс Метрика (счётчик 113845245). Считает только основной сайт pogreb-wine.ru, тестовый не учитывается.
 METRIKA_ID='113845245'
+# Подтверждение прав в Яндекс Вебмастере (код тот же, что в файле yandex_04a979bc8470ebc1.html, его кладёт build.py)
+YANDEX_VERIFY='<meta name="yandex-verification" content="04a979bc8470ebc1">'
 METRIKA=r'''<script>if(/(^|\.)pogreb-wine\.ru$/.test(location.hostname)){(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='''+METRIKA_ID+'''','ym');ym('''+METRIKA_ID+''',"init",{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",accurateTrackBounce:true,trackLinks:true});}</script>
 '''
 FONTS='''<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,7 +92,7 @@ def doc(fname, title, desc, body, active, first=False, ld=None, img='media/hatch
     head=f'<title>{title}</title>\n'+('<meta name="claude:viewport-fit-sides" content="cover">\n' if ARTIFACT else '')+f'<meta name="description" content="{desc}">\n{meta}{FONTS}\n'+ld_tags([ORG]+(ld or []))
     inner=head+header(active)+'<main>\n'+body+'</main>\n'+FOOT
     if not (first and ARTIFACT):
-        inner='<!doctype html>\n<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'+METRIKA+head+'</head><body>\n'+header(active)+'<main>\n'+body+'</main>\n'+FOOT+'\n</body></html>'
+        inner='<!doctype html>\n<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'+YANDEX_VERIFY+METRIKA+head+'</head><body>\n'+header(active)+'<main>\n'+body+'</main>\n'+FOOT+'\n</body></html>'
     open(os.path.join(OUT,fname),'w',encoding='utf-8').write(inner)
 
 PROD_LD=[{"@context":"https://schema.org","@type":"Product","name":"Спиральный винный погреб с автоматическим стеклянным люком","brand":{"@type":"Brand","name":"ПОGREB WINE"},"description":"Модульный спиральный погреб глубиной 2–3 м на 800–3 500 бутылок: блоки из бетона М500, мембрана ЭПДМ, дубовые накладки на ступенях, LED-подсветка 24 В, автоматический люк из триплекса до 32 мм.","image":SITE+"media/hatch-open.jpg","offers":{"@type":"AggregateOffer","lowPrice":"3500000","priceCurrency":"RUB","availability":"https://schema.org/InStock","seller":{"@id":SITE+"#org"}}},

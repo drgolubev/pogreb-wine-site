@@ -62,4 +62,7 @@ def process_media(folder):
 if os.path.abspath(media_out) != os.path.abspath(os.path.join(ROOT, "media")):
     process_media(media_out)
 open(os.path.join(OUT, '.nojekyll'), 'w').close()
+# Файл подтверждения прав в Яндекс Вебмастере (не удалять)
+with open(os.path.join(OUT, 'yandex_04a979bc8470ebc1.html'), 'w', encoding='utf-8') as f:
+    f.write('<html>\n    <head>\n        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n    </head>\n    <body>Verification: 04a979bc8470ebc1</body>\n</html>\n')
 print('OK', OUT)
