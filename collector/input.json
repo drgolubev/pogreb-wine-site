@@ -1,6 +1,6 @@
 {
- "run": 6,
- "script": "verify.py",
+ "run": 7,
+ "script": "contacts.py",
  "rows": [
   {
    "arch_id": "7e1b81",
@@ -66,13 +66,6 @@
    "email": "partner@studio-bk.ru"
   },
   {
-   "arch_id": "b60a1a",
-   "name": "AURADESIGN",
-   "city": "Москва",
-   "site": "https://aura-interior.design",
-   "email": "info@auradesign.ru"
-  },
-  {
    "arch_id": "d03c81",
    "name": "Alina Salomatina Interiors",
    "city": "Москва",
@@ -127,13 +120,6 @@
    "city": "Сочи",
    "site": "https://mybrightdesign.com",
    "email": "mybright@bk.ru"
-  },
-  {
-   "arch_id": "40fe4b",
-   "name": "VSREDE",
-   "city": "Сочи",
-   "site": "https://v-srede.ru",
-   "email": "info@v-srede.ru"
   },
   {
    "arch_id": "44f888",
@@ -246,13 +232,6 @@
    "city": "Санкт-Петербург",
    "site": "https://whitelines.pro",
    "email": "info@whitelines.pro"
-  },
-  {
-   "arch_id": "fe5b00",
-   "name": "OS'NOVA",
-   "city": "Санкт-Петербург",
-   "site": "https://osnova-interio.ru",
-   "email": "info@inova-interior.ru"
   },
   {
    "arch_id": "46c157",
@@ -491,13 +470,6 @@
    "city": "",
    "site": "domaizgazobloka.ru",
    "email": "info@domaizgazobloka.ru"
-  },
-  {
-   "arch_id": "b01d02",
-   "name": "Бор Строй",
-   "city": "",
-   "site": "plus-dom.ru",
-   "email": "mail@plus-dom.ru"
   },
   {
    "arch_id": "b01d03",
