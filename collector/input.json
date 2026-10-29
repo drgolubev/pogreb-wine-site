@@ -1,156 +1,573 @@
 {
- "run": 5,
- "script": "collect.py",
- "sites": [
+ "run": 6,
+ "script": "verify.py",
+ "rows": [
   {
-   "name": "Газ&Бетон",
-   "city": "Москва и МО",
-   "site": "gzbtn.ru",
-   "source": "строители"
+   "arch_id": "7e1b81",
+   "name": "Wantarchitect",
+   "city": "Москва",
+   "site": "https://wantarchitect.ru",
+   "email": "main@wantarchitect.ru"
   },
   {
+   "arch_id": "0fe41f",
+   "name": "ENDLESS.HOUSE",
+   "city": "Москва",
+   "site": "https://endless.house",
+   "email": "info@endless.house"
+  },
+  {
+   "arch_id": "77b202",
+   "name": "Бюро Александры Фёдоровой",
+   "city": "Москва",
+   "site": "https://fedorova.ru",
+   "email": "info@fedorova.ru"
+  },
+  {
+   "arch_id": "843efb",
+   "name": "Московский Архитектор",
+   "city": "Москва",
+   "site": "https://mos-archi.ru",
+   "email": "dom@mos-archi.ru"
+  },
+  {
+   "arch_id": "e7cbcf",
+   "name": "Студия Олега Резникова",
+   "city": "Москва",
+   "site": "https://reznikov-studio.ru",
+   "email": "mail@reznikov-studio.ru"
+  },
+  {
+   "arch_id": "7291d8",
+   "name": "NOMADFORM",
+   "city": "Москва",
+   "site": "https://nomadform.ru",
+   "email": "partners_nomadform@bk.ru"
+  },
+  {
+   "arch_id": "42e4d4",
+   "name": "ONEHOUSE",
+   "city": "Москва",
+   "site": "https://onehouse.ru",
+   "email": "partners@onehouse.ru"
+  },
+  {
+   "arch_id": "0f25b3",
+   "name": "Artum",
+   "city": "Москва",
+   "site": "https://artum.studio",
+   "email": "info@artumstudio.ru"
+  },
+  {
+   "arch_id": "39b007",
+   "name": "Studio BK Бориса Костырина",
+   "city": "Москва",
+   "site": "https://studio-bk.ru",
+   "email": "partner@studio-bk.ru"
+  },
+  {
+   "arch_id": "b60a1a",
+   "name": "AURADESIGN",
+   "city": "Москва",
+   "site": "https://aura-interior.design",
+   "email": "info@auradesign.ru"
+  },
+  {
+   "arch_id": "d03c81",
+   "name": "Alina Salomatina Interiors",
+   "city": "Москва",
+   "site": "https://salomatina.design",
+   "email": "info@salomatina.design"
+  },
+  {
+   "arch_id": "76ef4f",
+   "name": "NW Interior",
+   "city": "Москва",
+   "site": "https://nw-interior.com",
+   "email": "nw@nw-interior.ru"
+  },
+  {
+   "arch_id": "e5b4d5",
+   "name": "Rubleva Design",
+   "city": "Москва",
+   "site": "https://rubleva-design.ru",
+   "email": "info@rubleva-design.ru"
+  },
+  {
+   "arch_id": "3611e8",
+   "name": "Hot Walls",
+   "city": "Москва",
+   "site": "https://hot-walls.ru",
+   "email": "info@hot-walls.ru"
+  },
+  {
+   "arch_id": "7441f1",
+   "name": "Cartelle Design",
+   "city": "Москва",
+   "site": "https://cartelledesign.com",
+   "email": "info@cartelledesign.com"
+  },
+  {
+   "arch_id": "c12881",
+   "name": "Simple Interiors",
+   "city": "Москва",
+   "site": "https://simple-interiors.com",
+   "email": "info@simple-interiors.com"
+  },
+  {
+   "arch_id": "a67e58",
+   "name": "VPROEKTE",
+   "city": "Сочи",
+   "site": "https://vproekte.com",
+   "email": "hello@vproekte.com"
+  },
+  {
+   "arch_id": "24e13f",
+   "name": "My Bright",
+   "city": "Сочи",
+   "site": "https://mybrightdesign.com",
+   "email": "mybright@bk.ru"
+  },
+  {
+   "arch_id": "40fe4b",
+   "name": "VSREDE",
+   "city": "Сочи",
+   "site": "https://v-srede.ru",
+   "email": "info@v-srede.ru"
+  },
+  {
+   "arch_id": "44f888",
+   "name": "Ovinterior",
+   "city": "Сочи",
+   "site": "https://ovi-design.ru",
+   "email": "ovi_design@mail.ru"
+  },
+  {
+   "arch_id": "ca6f53",
+   "name": "PROJECT.M",
+   "city": "Сочи",
+   "site": "https://projectm-design.com",
+   "email": "mariya.project.m@mail.ru"
+  },
+  {
+   "arch_id": "4135f9",
+   "name": "Metrix Design",
+   "city": "Сочи",
+   "site": "https://metrixdesign.ru",
+   "email": "mail@metrixdesign.ru"
+  },
+  {
+   "arch_id": "202fee",
+   "name": "AMIKS GROUP",
+   "city": "Екатеринбург",
+   "site": "https://amiks-design.ru",
+   "email": "info@amiksgroup.ru"
+  },
+  {
+   "arch_id": "5e7ab0",
+   "name": "Студия 33",
+   "city": "Екатеринбург",
+   "site": "https://studia33.ru",
+   "email": "studio33.ekb@yandex.ru"
+  },
+  {
+   "arch_id": "fc3fec",
+   "name": "IDEA DESIGN",
+   "city": "Екатеринбург",
+   "site": "https://idea-design.pro",
+   "email": "idea.design@my.com"
+  },
+  {
+   "arch_id": "e0842f",
+   "name": "Alexander Tischler",
+   "city": "Екатеринбург",
+   "site": "https://alexandertischler.com",
+   "email": "hello@alexandertischler.com"
+  },
+  {
+   "arch_id": "8f0e12",
+   "name": "Малина ПРО",
+   "city": "Екатеринбург",
+   "site": "https://designmalina.ru",
+   "email": "designmalina@yandex.ru"
+  },
+  {
+   "arch_id": "e103e5",
+   "name": "Taiga Architecture Group",
+   "city": "Санкт-Петербург",
+   "site": "https://taiga-arch.com",
+   "email": "info@taiga-arch.com"
+  },
+  {
+   "arch_id": "1b38b1",
+   "name": "LESH Design Studio",
+   "city": "Санкт-Петербург",
+   "site": "https://lesh-design.ru",
+   "email": "studio@lesh-84.ru"
+  },
+  {
+   "arch_id": "1deaa2",
+   "name": "Intek Design",
+   "city": "Санкт-Петербург",
+   "site": "https://design-in.ru",
+   "email": "info@intek-design.ru"
+  },
+  {
+   "arch_id": "71c526",
+   "name": "ARTSTUDIO",
+   "city": "Санкт-Петербург",
+   "site": "https://artstudiodesign.ru",
+   "email": "info@ar-st.ru"
+  },
+  {
+   "arch_id": "704ec5",
+   "name": "STUDIA 23",
+   "city": "Санкт-Петербург",
+   "site": "https://studia-23-spb.ru",
+   "email": "info@studia-23-spb.ru"
+  },
+  {
+   "arch_id": "83a288",
+   "name": "Privilege Design",
+   "city": "Санкт-Петербург",
+   "site": "https://privilege-design.ru",
+   "email": "info@privilege-design.ru"
+  },
+  {
+   "arch_id": "6a1d44",
+   "name": "Бюро Марии Максимовой",
+   "city": "Санкт-Петербург",
+   "site": "https://design-mm.ru",
+   "email": "office@design-mm.ru"
+  },
+  {
+   "arch_id": "f2d59c",
+   "name": "White Lines",
+   "city": "Санкт-Петербург",
+   "site": "https://whitelines.pro",
+   "email": "info@whitelines.pro"
+  },
+  {
+   "arch_id": "fe5b00",
+   "name": "OS'NOVA",
+   "city": "Санкт-Петербург",
+   "site": "https://osnova-interio.ru",
+   "email": "info@inova-interior.ru"
+  },
+  {
+   "arch_id": "46c157",
+   "name": "KRASNOV STUDIO",
+   "city": "Санкт-Петербург",
+   "site": "https://krasnov.design",
+   "email": "info@krasnov.design"
+  },
+  {
+   "arch_id": "5b1115",
+   "name": "NOWDESIGN",
+   "city": "Санкт-Петербург",
+   "site": "https://nowdesign.ru",
+   "email": "info@nowdesign.ru"
+  },
+  {
+   "arch_id": "dfa425",
+   "name": "Forma Studio",
+   "city": "Санкт-Петербург",
+   "site": "https://formadesignspb.ru",
+   "email": "formadesignspb@mail.ru"
+  },
+  {
+   "arch_id": "707120",
+   "name": "BURO",
+   "city": "Санкт-Петербург",
+   "site": "https://buroarc.ru",
+   "email": "partners@buroarc.ru"
+  },
+  {
+   "arch_id": "800cb6",
+   "name": "Plan A",
+   "city": "Санкт-Петербург",
+   "site": "https://planaspb.ru",
+   "email": "planaspb@gmail.com"
+  },
+  {
+   "arch_id": "c96238",
+   "name": "Art Design",
+   "city": "Санкт-Петербург",
+   "site": "https://artdesign.space",
+   "email": "elena@artdesign.space"
+  },
+  {
+   "arch_id": "ba533a",
+   "name": "Юдин и Новиков",
+   "city": "Санкт-Петербург",
+   "site": "https://design-un.ru",
+   "email": "info@architect-un.ru"
+  },
+  {
+   "arch_id": "657ade",
+   "name": "Fisheye Architecture & Design",
+   "city": "Санкт-Петербург",
+   "site": "https://fisheye-interior.ru",
+   "email": "fisheye.info@gmail.com"
+  },
+  {
+   "arch_id": "11e0a5",
+   "name": "Mudryakova Design Studio",
+   "city": "Санкт-Петербург",
+   "site": "https://mudryakova.ru",
+   "email": "olga@mudryakova.ru"
+  },
+  {
+   "arch_id": "ae6e52",
+   "name": "Ольга Филиппова",
+   "city": "Москва",
+   "site": "https://olga-filippova.ru",
+   "email": "info@olga-filippova.ru"
+  },
+  {
+   "arch_id": "05299e",
+   "name": "Печеный",
+   "city": "Москва",
+   "site": "https://pechenyi.com",
+   "email": "anton@pechenyi.com"
+  },
+  {
+   "arch_id": "e1d19d",
+   "name": "Точка дизайна",
+   "city": "Москва",
+   "site": "https://tochka-design.ru",
+   "email": "partners@tochka-design.ru"
+  },
+  {
+   "arch_id": "31905e",
+   "name": "Н-куб",
+   "city": "Москва",
+   "site": "https://nncube.ru",
+   "email": "nncube@mail.ru"
+  },
+  {
+   "arch_id": "6c5a91",
+   "name": "АС-бюро",
+   "city": "Москва",
+   "site": "https://a-s-buro.ru",
+   "email": "offer@a-s-buro.com"
+  },
+  {
+   "arch_id": "2a3df3",
+   "name": "VVERHDNOM",
+   "city": "Москва",
+   "site": "https://vverhdnom.com",
+   "email": "partner.vverhdnom@ya.ru"
+  },
+  {
+   "arch_id": "afc8d4",
+   "name": "Coolagin.Design",
+   "city": "Москва",
+   "site": "https://coolagin.design",
+   "email": "info@coolagin.design"
+  },
+  {
+   "arch_id": "514ef5",
+   "name": "ITER Design",
+   "city": "Москва",
+   "site": "https://iter-design.com",
+   "email": "info@iter-design.com"
+  },
+  {
+   "arch_id": "b9c485",
+   "name": "Kontrast Design",
+   "city": "Москва",
+   "site": "https://kontrastdesign.ru",
+   "email": "design-kontrast@yandex.ru"
+  },
+  {
+   "arch_id": "3b9960",
+   "name": "ArtGart",
+   "city": "Москва",
+   "site": "https://artgart.ru",
+   "email": "info@artgart.ru"
+  },
+  {
+   "arch_id": "69607d",
+   "name": "Geometrium",
+   "city": "Москва",
+   "site": "https://geometrium.com",
+   "email": "office@geometrium.com"
+  },
+  {
+   "arch_id": "fd4785",
+   "name": "Zeworkroom",
+   "city": "Москва",
+   "site": "https://www.zeworkroom.com",
+   "email": "info@zeworkroom.com"
+  },
+  {
+   "arch_id": "be6820",
+   "name": "M2 Project",
+   "city": "Москва",
+   "site": "https://www.m2project.ru",
+   "email": "info@m2project.ru"
+  },
+  {
+   "arch_id": "871283",
+   "name": "REDI",
+   "city": "Новосибирск",
+   "site": "https://redi-nsk.ru",
+   "email": "redinsk@gmail.com"
+  },
+  {
+   "arch_id": "228bd2",
+   "name": "Well Plan",
+   "city": "Новосибирск",
+   "site": "https://wellplan-interiors.com",
+   "email": "info@wellplan-interiors.com"
+  },
+  {
+   "arch_id": "195020",
+   "name": "Bulanovi Design",
+   "city": "Новосибирск",
+   "site": "https://bulanovi.ru",
+   "email": "design-bulanovi@yandex.ru"
+  },
+  {
+   "arch_id": "5d8578",
+   "name": "Time Design",
+   "city": "Новосибирск",
+   "site": "https://timedesign.studio",
+   "email": "mail@timedesign.studio"
+  },
+  {
+   "arch_id": "2c8ebc",
+   "name": "White",
+   "city": "Новосибирск",
+   "site": "https://whitensk.ru",
+   "email": "white.design.studio@yandex.ru"
+  },
+  {
+   "arch_id": "cb606c",
+   "name": "Verve",
+   "city": "Новосибирск",
+   "site": "https://designinterio.ru",
+   "email": "office@designinterio.ru"
+  },
+  {
+   "arch_id": "2bfdc8",
+   "name": "Viinapuu",
+   "city": "Красноярск",
+   "site": "https://viinapuu.com",
+   "email": "viinapuularisa@mail.ru"
+  },
+  {
+   "arch_id": "340c37",
+   "name": "NAUM ARCHITECT",
+   "city": "Красноярск",
+   "site": "https://naumarchitect.ru",
+   "email": "hello@naumarchitect.ru"
+  },
+  {
+   "arch_id": "421619",
+   "name": "TROGUZ",
+   "city": "Красноярск",
+   "site": "https://troguz.ru",
+   "email": "troguz@bk.ru"
+  },
+  {
+   "arch_id": "8874ef",
+   "name": "ЭТА",
+   "city": "Красноярск",
+   "site": "https://etastudia.ru",
+   "email": "eta.studia@gmail.com"
+  },
+  {
+   "arch_id": "208a49",
+   "name": "КРСК",
+   "city": "Красноярск",
+   "site": "https://design-124.ru",
+   "email": "oookrsk124@yandex.ru"
+  },
+  {
+   "arch_id": "b01d01",
    "name": "Домаизгазоблока",
-   "city": "Москва и МО",
+   "city": "",
    "site": "domaizgazobloka.ru",
-   "source": "строители"
+   "email": "info@domaizgazobloka.ru"
   },
   {
+   "arch_id": "b01d02",
    "name": "Бор Строй",
-   "city": "Москва и МО",
+   "city": "",
    "site": "plus-dom.ru",
-   "source": "строители"
+   "email": "mail@plus-dom.ru"
   },
   {
+   "arch_id": "b01d03",
    "name": "Деутек",
-   "city": "Москва и МО",
+   "city": "",
    "site": "deutek.ru",
-   "source": "строители"
+   "email": "stroy-st@mail.ru"
   },
   {
-   "name": "Атлант Дом",
-   "city": "Москва и МО",
-   "site": "atlantdom.pro",
-   "source": "строители"
-  },
-  {
-   "name": "Светлый Терем",
-   "city": "Москва и МО",
-   "site": "svetliy-terem.ru",
-   "source": "строители"
-  },
-  {
-   "name": "Фул Хаус",
-   "city": "Москва и МО",
-   "site": "full-houses.ru",
-   "source": "строители"
-  },
-  {
-   "name": "Технологии Домостроения",
-   "city": "Москва и МО",
-   "site": "hbtech.ru",
-   "source": "строители"
-  },
-  {
-   "name": "Вилла Эксперт",
-   "city": "Москва и МО",
-   "site": "villaexpert.ru",
-   "source": "строители"
-  },
-  {
+   "arch_id": "b01d04",
    "name": "Интел Групп",
-   "city": "Москва и МО",
+   "city": "",
    "site": "doma-karkas.ru",
-   "source": "строители"
+   "email": "info@doma-karkas.ru"
   },
   {
-   "name": "Hauswerk",
-   "city": "Екатеринбург",
-   "site": "hauswerk.pro",
-   "source": "строители"
-  },
-  {
-   "name": "Загородная недвижимость Урала",
-   "city": "Екатеринбург",
-   "site": "zagorodom96.ru",
-   "source": "строители"
-  },
-  {
+   "arch_id": "b01d05",
    "name": "Урал-Строй",
-   "city": "Екатеринбург",
+   "city": "",
    "site": "stroitelstvodomov.org",
-   "source": "строители"
+   "email": "office@ural-stroy.com"
   },
   {
-   "name": "Теплодина",
-   "city": "Екатеринбург",
-   "site": "teplodina.ru",
-   "source": "строители"
+   "arch_id": "b01d06",
+   "name": "Загородная недвижимость Урала",
+   "city": "",
+   "site": "zagorodom96.ru",
+   "email": "zagorodom96@mail.ru"
   },
   {
+   "arch_id": "b01d07",
    "name": "Загород Эстейт",
-   "city": "Екатеринбург",
+   "city": "",
    "site": "zagorod-estate.ru",
-   "source": "строители"
+   "email": "zagorod96@gmail.com"
   },
   {
-   "name": "Платформа",
-   "city": "Екатеринбург",
-   "site": "xn--80aaaflh0a1aw.xn--p1ai",
-   "source": "строители"
-  },
-  {
+   "arch_id": "b01d08",
    "name": "ИИДА",
-   "city": "Казань",
+   "city": "",
    "site": "iida.ru",
-   "source": "строители"
+   "email": "info@iida.ru"
   },
   {
+   "arch_id": "b01d09",
    "name": "БАСТЭН",
-   "city": "Санкт-Петербург",
+   "city": "",
    "site": "skbast.ru",
-   "source": "строители"
+   "email": "smeta@skbast.ru"
   },
   {
-   "name": "Загородная мечта",
-   "city": "Санкт-Петербург",
-   "site": "country-dream.ru",
-   "source": "строители"
-  },
-  {
-   "name": "СК-ЕЛЬ",
-   "city": "Санкт-Петербург",
-   "site": "stroy-build.ru",
-   "source": "строители"
-  },
-  {
+   "arch_id": "b01d10",
    "name": "РРК",
-   "city": "Санкт-Петербург",
+   "city": "",
    "site": "rrk-stroy.ru",
-   "source": "строители"
+   "email": "info@rrk-stroy.ru"
   },
   {
-   "name": "Новый стиль",
-   "city": "Санкт-Петербург",
-   "site": "newwoodstyle.ru",
-   "source": "строители"
-  },
-  {
+   "arch_id": "b01d11",
    "name": "Стройтехнологии",
-   "city": "Санкт-Петербург",
+   "city": "",
    "site": "nwst.ru",
-   "source": "строители"
+   "email": "info@nwst.ru"
   },
   {
+   "arch_id": "b01d12",
    "name": "Optimum House",
-   "city": "Санкт-Петербург",
+   "city": "",
    "site": "optimumhouse.ru",
-   "source": "строители"
-  },
-  {
-   "name": "Сканди Экодом",
-   "city": "Санкт-Петербург",
-   "site": "scandiecodom.ru",
-   "source": "строители"
+   "email": "spb@optimumhouse.ru"
   }
  ]
 }

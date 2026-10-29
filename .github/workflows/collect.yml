@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install requests
+      - run: pip install requests dnspython
       - name: Собрать
         run: python collector/$(python -c "import json;print(json.load(open('collector/input.json')).get('script','collect.py'))")
       - name: Зашифровать и сохранить
