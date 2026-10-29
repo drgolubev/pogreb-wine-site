@@ -1,348 +1,156 @@
 {
- "run": 4,
+ "run": 5,
  "script": "collect.py",
  "sites": [
   {
-   "name": "Taiga Architecture Group",
+   "name": "Газ&Бетон",
+   "city": "Москва и МО",
+   "site": "gzbtn.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Домаизгазоблока",
+   "city": "Москва и МО",
+   "site": "domaizgazobloka.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Бор Строй",
+   "city": "Москва и МО",
+   "site": "plus-dom.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Деутек",
+   "city": "Москва и МО",
+   "site": "deutek.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Атлант Дом",
+   "city": "Москва и МО",
+   "site": "atlantdom.pro",
+   "source": "строители"
+  },
+  {
+   "name": "Светлый Терем",
+   "city": "Москва и МО",
+   "site": "svetliy-terem.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Фул Хаус",
+   "city": "Москва и МО",
+   "site": "full-houses.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Технологии Домостроения",
+   "city": "Москва и МО",
+   "site": "hbtech.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Вилла Эксперт",
+   "city": "Москва и МО",
+   "site": "villaexpert.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Интел Групп",
+   "city": "Москва и МО",
+   "site": "doma-karkas.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Hauswerk",
+   "city": "Екатеринбург",
+   "site": "hauswerk.pro",
+   "source": "строители"
+  },
+  {
+   "name": "Загородная недвижимость Урала",
+   "city": "Екатеринбург",
+   "site": "zagorodom96.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Урал-Строй",
+   "city": "Екатеринбург",
+   "site": "stroitelstvodomov.org",
+   "source": "строители"
+  },
+  {
+   "name": "Теплодина",
+   "city": "Екатеринбург",
+   "site": "teplodina.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Загород Эстейт",
+   "city": "Екатеринбург",
+   "site": "zagorod-estate.ru",
+   "source": "строители"
+  },
+  {
+   "name": "Платформа",
+   "city": "Екатеринбург",
+   "site": "xn--80aaaflh0a1aw.xn--p1ai",
+   "source": "строители"
+  },
+  {
+   "name": "ИИДА",
+   "city": "Казань",
+   "site": "iida.ru",
+   "source": "строители"
+  },
+  {
+   "name": "БАСТЭН",
    "city": "Санкт-Петербург",
-   "site": "taiga-arch.com",
-   "source": "рейтинг"
+   "site": "skbast.ru",
+   "source": "строители"
   },
   {
-   "name": "Maxdesign",
+   "name": "Загородная мечта",
    "city": "Санкт-Петербург",
-   "site": "maxdesign.pro",
-   "source": "рейтинг"
+   "site": "country-dream.ru",
+   "source": "строители"
   },
   {
-   "name": "LESH Design Studio",
+   "name": "СК-ЕЛЬ",
    "city": "Санкт-Петербург",
-   "site": "lesh-design.ru",
-   "source": "рейтинг"
+   "site": "stroy-build.ru",
+   "source": "строители"
   },
   {
-   "name": "Intek Design",
+   "name": "РРК",
    "city": "Санкт-Петербург",
-   "site": "design-in.ru",
-   "source": "рейтинг"
+   "site": "rrk-stroy.ru",
+   "source": "строители"
   },
   {
-   "name": "ARTSTUDIO",
+   "name": "Новый стиль",
    "city": "Санкт-Петербург",
-   "site": "artstudiodesign.ru",
-   "source": "рейтинг"
+   "site": "newwoodstyle.ru",
+   "source": "строители"
   },
   {
-   "name": "STUDIA 23",
+   "name": "Стройтехнологии",
    "city": "Санкт-Петербург",
-   "site": "studia-23-spb.ru",
-   "source": "рейтинг"
+   "site": "nwst.ru",
+   "source": "строители"
   },
   {
-   "name": "Privilege Design",
+   "name": "Optimum House",
    "city": "Санкт-Петербург",
-   "site": "privilege-design.ru",
-   "source": "рейтинг"
+   "site": "optimumhouse.ru",
+   "source": "строители"
   },
   {
-   "name": "Бюро Марии Максимовой",
+   "name": "Сканди Экодом",
    "city": "Санкт-Петербург",
-   "site": "design-mm.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "White Lines",
-   "city": "Санкт-Петербург",
-   "site": "whitelines.pro",
-   "source": "рейтинг"
-  },
-  {
-   "name": "OS'NOVA",
-   "city": "Санкт-Петербург",
-   "site": "osnova-interio.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "KRASNOV STUDIO",
-   "city": "Санкт-Петербург",
-   "site": "krasnov.design",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Art Spice",
-   "city": "Санкт-Петербург",
-   "site": "artspice.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "NOWDESIGN",
-   "city": "Санкт-Петербург",
-   "site": "nowdesign.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Perimetr Design",
-   "city": "Санкт-Петербург",
-   "site": "perimetrdesign.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Studio 8",
-   "city": "Санкт-Петербург",
-   "site": "studio8interior.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Forma Studio",
-   "city": "Санкт-Петербург",
-   "site": "formadesignspb.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Studio Line",
-   "city": "Санкт-Петербург",
-   "site": "line-archi.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "BURO",
-   "city": "Санкт-Петербург",
-   "site": "buroarc.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Plan A",
-   "city": "Санкт-Петербург",
-   "site": "planaspb.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Art Design",
-   "city": "Санкт-Петербург",
-   "site": "artdesign.space",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Юдин и Новиков",
-   "city": "Санкт-Петербург",
-   "site": "design-un.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Fisheye Architecture & Design",
-   "city": "Санкт-Петербург",
-   "site": "fisheye-interior.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Mudryakova Design Studio",
-   "city": "Санкт-Петербург",
-   "site": "mudryakova.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Polozov interior design",
-   "city": "Санкт-Петербург",
-   "site": "polozov.design",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Ольга Филиппова",
-   "city": "Москва",
-   "site": "olga-filippova.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Печеный",
-   "city": "Москва",
-   "site": "pechenyi.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Studio 25",
-   "city": "Москва",
-   "site": "studio-25.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Точка дизайна",
-   "city": "Москва",
-   "site": "tochka-design.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Н-куб",
-   "city": "Москва",
-   "site": "nncube.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "АС-бюро",
-   "city": "Москва",
-   "site": "a-s-buro.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "VVERHDNOM",
-   "city": "Москва",
-   "site": "vverhdnom.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Studio 1-61",
-   "city": "Москва",
-   "site": "studio1-61.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Coolagin.Design",
-   "city": "Москва",
-   "site": "coolagin.design",
-   "source": "рейтинг"
-  },
-  {
-   "name": "ITER Design",
-   "city": "Москва",
-   "site": "iter-design.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Kontrast Design",
-   "city": "Москва",
-   "site": "kontrastdesign.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "DaVinci Premium",
-   "city": "Москва",
-   "site": "davinci-premium.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "ArtGart",
-   "city": "Москва",
-   "site": "artgart.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Бюро 5.25",
-   "city": "Москва",
-   "site": "buro5-25.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Hansen Studio Design",
-   "city": "Москва",
-   "site": "hansen-studio.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Geometrium",
-   "city": "Москва",
-   "site": "geometrium.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Zeworkroom",
-   "city": "Москва",
-   "site": "zeworkroom.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "M2 Project",
-   "city": "Москва",
-   "site": "m2project.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Симметрия",
-   "city": "Новосибирск",
-   "site": "simmnsk.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "REDI",
-   "city": "Новосибирск",
-   "site": "redi-nsk.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Well Plan",
-   "city": "Новосибирск",
-   "site": "wellplan-interiors.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Bulanovi Design",
-   "city": "Новосибирск",
-   "site": "bulanovi.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Time Design",
-   "city": "Новосибирск",
-   "site": "timedesign.studio",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Ярко room",
-   "city": "Новосибирск",
-   "site": "yarkoroom.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Gotovo",
-   "city": "Новосибирск",
-   "site": "gotovo-studio.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "White",
-   "city": "Новосибирск",
-   "site": "whitensk.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Verve",
-   "city": "Новосибирск",
-   "site": "designinterio.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "Viinapuu",
-   "city": "Красноярск",
-   "site": "viinapuu.com",
-   "source": "рейтинг"
-  },
-  {
-   "name": "NAUM ARCHITECT",
-   "city": "Красноярск",
-   "site": "naumarchitect.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "TROGUZ",
-   "city": "Красноярск",
-   "site": "troguz.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "ЭТА",
-   "city": "Красноярск",
-   "site": "etastudia.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "B-plan",
-   "city": "Красноярск",
-   "site": "bplandesign.ru",
-   "source": "рейтинг"
-  },
-  {
-   "name": "КРСК",
-   "city": "Красноярск",
-   "site": "design-124.ru",
-   "source": "рейтинг"
+   "site": "scandiecodom.ru",
+   "source": "строители"
   }
  ]
 }
