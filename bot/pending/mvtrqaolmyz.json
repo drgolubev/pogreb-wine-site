@@ -14,5 +14,7 @@
    "replace": "<h2>Пять шагов до готового погреба</h2>"
   }
  ],
- "status": "pending"
+ "status": "published",
+ "published_at": "2026-10-29T16:39:36.727Z",
+ "commit": "162bc2bfc8a9f3cb4de5cfeb2ff192d8091bc5ab"
 }
