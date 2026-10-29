@@ -1,0 +1,338 @@
+{
+ "run": 1,
+ "sites": [
+  {
+   "name": "ДИЗАЙНУС",
+   "city": "Москва",
+   "site": "abdesignus.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Wantarchitect",
+   "city": "Москва",
+   "site": "wantarchitect.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Арх.ПРЕДМЕТ",
+   "city": "Москва",
+   "site": "arch-predmet.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "ENDLESS.HOUSE",
+   "city": "Москва",
+   "site": "endless.house",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Arno Architetture",
+   "city": "Москва",
+   "site": "arnoarch.com",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Бюро Александры Фёдоровой",
+   "city": "Москва",
+   "site": "fedorova.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Московский Архитектор",
+   "city": "Москва",
+   "site": "mos-archi.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Студия Олега Резникова",
+   "city": "Москва",
+   "site": "reznikov-studio.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "NOMADFORM",
+   "city": "Москва",
+   "site": "nomadform.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "ZROBIM",
+   "city": "Москва",
+   "site": "zrobim.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "ONEHOUSE",
+   "city": "Москва",
+   "site": "onehouse.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "IMETRA",
+   "city": "Москва",
+   "site": "imetra.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Artum",
+   "city": "Москва",
+   "site": "artum.studio",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Premier Home",
+   "city": "Москва",
+   "site": "premier-h.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Studio BK Бориса Костырина",
+   "city": "Москва",
+   "site": "studio-bk.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "AURADESIGN",
+   "city": "Москва",
+   "site": "aura-interior.design",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Alina Salomatina Interiors",
+   "city": "Москва",
+   "site": "salomatina.design",
+   "source": "рейтинг"
+  },
+  {
+   "name": "NW Interior",
+   "city": "Москва",
+   "site": "nw-interior.com",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Rubleva Design",
+   "city": "Москва",
+   "site": "rubleva-design.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Hot Walls",
+   "city": "Москва",
+   "site": "hot-walls.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Cartelle Design",
+   "city": "Москва",
+   "site": "cartelledesign.com",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Simple Interiors",
+   "city": "Москва",
+   "site": "simple-interiors.com",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Marta Costa",
+   "city": "Москва",
+   "site": "marta-kosta.com",
+   "source": "рейтинг"
+  },
+  {
+   "name": "VPROEKTE",
+   "city": "Сочи",
+   "site": "vproekte.com",
+   "source": "рейтинг"
+  },
+  {
+   "name": "My Bright",
+   "city": "Сочи",
+   "site": "mybrightdesign.com",
+   "source": "рейтинг"
+  },
+  {
+   "name": "VSREDE",
+   "city": "Сочи",
+   "site": "v-srede.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Ovinterior",
+   "city": "Сочи",
+   "site": "ovi-design.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "PROJECT.M",
+   "city": "Сочи",
+   "site": "projectm-design.com",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Metrix Design",
+   "city": "Сочи",
+   "site": "metrixdesign.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "DESIGNUM SOCHI",
+   "city": "Сочи",
+   "site": "designumsochi.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "AMIKS GROUP",
+   "city": "Екатеринбург",
+   "site": "amiks-design.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Студия 33",
+   "city": "Екатеринбург",
+   "site": "studia33.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "IDEA DESIGN",
+   "city": "Екатеринбург",
+   "site": "idea-design.pro",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Градиз",
+   "city": "Екатеринбург",
+   "site": "gradiz.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Alexander Tischler",
+   "city": "Екатеринбург",
+   "site": "atischler.ru",
+   "source": "рейтинг"
+  },
+  {
+   "name": "Малина ПРО",
+   "city": "Екатеринбург",
+   "site": "designmalina.ru",
+   "source": "рейтинг"
+  }
+ ],
+ "queries": [
+  {
+   "q": "архитектурное бюро проектирование загородных домов Москва",
+   "city": "Москва",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Подмосковье",
+   "city": "Подмосковье",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Санкт-Петербург",
+   "city": "Санкт-Петербург",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Сочи",
+   "city": "Сочи",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Краснодар",
+   "city": "Краснодар",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Казань",
+   "city": "Казань",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Екатеринбург",
+   "city": "Екатеринбург",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Самара",
+   "city": "Самара",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Саратов",
+   "city": "Саратов",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Нижний Новгород",
+   "city": "Нижний Новгород",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Новосибирск",
+   "city": "Новосибирск",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Калининград",
+   "city": "Калининград",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Тюмень",
+   "city": "Тюмень",
+   "pages": 2
+  },
+  {
+   "q": "архитектурное бюро проектирование загородных домов Уфа",
+   "city": "Уфа",
+   "pages": 2
+  },
+  {
+   "q": "дизайн интерьера загородного дома студия Москва",
+   "city": "Москва",
+   "pages": 1
+  },
+  {
+   "q": "дизайн интерьера загородного дома студия Подмосковье",
+   "city": "Подмосковье",
+   "pages": 1
+  },
+  {
+   "q": "дизайн интерьера загородного дома студия Санкт-Петербург",
+   "city": "Санкт-Петербург",
+   "pages": 1
+  },
+  {
+   "q": "дизайн интерьера загородного дома студия Сочи",
+   "city": "Сочи",
+   "pages": 1
+  },
+  {
+   "q": "дизайн интерьера загородного дома студия Краснодар",
+   "city": "Краснодар",
+   "pages": 1
+  },
+  {
+   "q": "дизайн интерьера загородного дома студия Казань",
+   "city": "Казань",
+   "pages": 1
+  },
+  {
+   "q": "дизайн интерьера загородного дома студия Екатеринбург",
+   "city": "Екатеринбург",
+   "pages": 1
+  },
+  {
+   "q": "архитектор частных резиденций премиум Рублёвка",
+   "city": "Подмосковье",
+   "pages": 1
+  },
+  {
+   "q": "проектирование особняков архитектурная мастерская",
+   "city": "",
+   "pages": 2
+  }
+ ]
+}
