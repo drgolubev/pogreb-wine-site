@@ -1,7 +1,7 @@
 """Сборщик контактов архитектурных бюро: сайты из списка + сайты из поиска.
 Читает collector/input.json, пишет out.json."""
 import json, re, sys, time, html
-from urllib.parse import urljoin, urlparse, quote_plus, unquote, parse_qs
+from urllib.parse import urljoin, urlparse
 from concurrent.futures import ThreadPoolExecutor
 import requests
 import urllib3
@@ -88,33 +88,12 @@ def site(entry):
             'emails': ems[:6], 'telegram': tg}
 
 
-def search(q, pages=2):
-    found = []
-    for i in range(pages):
-        url = 'https://html.duckduckgo.com/html/?q=' + quote_plus(q) + (f'&s={i * 30}' if i else '')
-        _, h = get(url)
-        for href in re.findall(r'class="result__a"[^>]*href="([^"]+)"', h):
-            if 'uddg=' in href:
-                href = unquote(parse_qs(urlparse(href).query).get('uddg', [''])[0])
-            d = urlparse(href).netloc.lower().replace('www.', '')
-            if d and not SKIP_DOMAINS.search(d + '.') and d not in found:
-                found.append(d)
-        time.sleep(2)
-    return found
-
 
 def main():
     cfg = json.load(open('collector/input.json', encoding='utf-8'))
     entries = list(cfg.get('sites', []))
     seen = {e['site'].lower().replace('https://', '').replace('http://', '').replace('www.', '').strip('/') for e in entries}
     log = []
-    for q in cfg.get('queries', []):
-        doms = search(q['q'], q.get('pages', 2))
-        log.append({'q': q['q'], 'found': len(doms)})
-        for d in doms:
-            if d not in seen:
-                seen.add(d)
-                entries.append({'name': '', 'city': q.get('city', ''), 'site': d, 'source': 'поиск: ' + q['q']})
     with ThreadPoolExecutor(12) as ex:
         res = list(ex.map(site, entries))
     json.dump({'log': log, 'items': res}, open('out.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
