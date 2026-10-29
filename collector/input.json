@@ -1,5 +1,5 @@
 {
- "run": 1,
+ "run": 2,
  "sites": [
   {
    "name": "ДИЗАЙНУС",
@@ -334,5 +334,6 @@
    "city": "",
    "pages": 2
   }
- ]
+ ],
+ "script": "probe.py"
 }
