@@ -68,4 +68,16 @@ with open(os.path.join(OUT, 'yandex_04a979bc8470ebc1.html'), 'w', encoding='utf-
 # Файл подтверждения прав в Google Search Console (не удалять)
 with open(os.path.join(OUT, 'google8189c95b3da8c50f.html'), 'w', encoding='utf-8') as f:
     f.write('google-site-verification: google8189c95b3da8c50f.html')
+# Метка версии у style.css и скриптов: после каждой выкладки браузеры берут свежие файлы, а не старые из памяти
+import hashlib, glob, re as _re
+_ver = {}
+for _n in ('style.css', 'app.js', 'konstruktor.js'):
+    _f = os.path.join(OUT, _n)
+    if os.path.exists(_f):
+        _ver[_n] = hashlib.md5(open(_f, 'rb').read()).hexdigest()[:8]
+for _h in glob.glob(os.path.join(OUT, '*.html')):
+    _t = open(_h, encoding='utf-8').read()
+    _t2 = _re.sub(r'(href|src)="(style\.css|app\.js|konstruktor\.js)"', lambda m: f'{m.group(1)}="{m.group(2)}?v={_ver.get(m.group(2), "1")}"', _t)
+    if _t2 != _t:
+        open(_h, 'w', encoding='utf-8').write(_t2)
 print('OK', OUT)
