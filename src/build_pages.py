@@ -114,7 +114,7 @@ ANAT_IDX=S['ANATOMY'].replace('{{DIAGRAM}}',D).replace(' style="padding-top:0"',
 KZ_TEASE='''<section class="sec" style="padding-top:0"><div class="wrap kz-tease"><a class="kz-tease-media" href="konstruktor.html" aria-label="Открыть конструктор погреба"><img src="media/kz-preview.jpg" alt="Конструктор погреба: круглый люк открыт, видна винтовая лестница и ниши с вином" loading="lazy"><span class="kz-tease-tag">Онлайн</span></a><div><span class="kicker">Конструктор</span><h2>Соберите свой погреб за пару минут</h2><p class="lid-lead">Выберите форму люка, механизм, цвет стекла, глубину и дерево ступеней. Рисунок меняется вместе с выбором, а люк открывается прямо на экране. Готовую сборку отправьте нам, и мы назовём цену.</p><div class="hero-actions"><a class="btn btn-wine" href="konstruktor.html">Открыть конструктор</a></div></div></div></section>
 '''
 idx=fix(S['HERO'])+S['IRIS']+S['COMPARE']+ANAT_IDX+INSIDE+tease+KZ_TEASE+ETZ_TEASE+CTA
-doc('index.html','ПОGREB WINE — спиральные винные погреба под полом дома','Спиральные винные погреба под полом дома со стеклянным автоматическим люком. От 3,5 млн ₽, 800–3 500 бутылок, монтаж до 10 дней.',idx,'index.html',first=True,ld=PROD_LD)
+doc('index.html','Винный погреб под ключ в частном доме — спиральный погреб под полом · ПОGREB WINE','Спиральные винные погреба под полом дома со стеклянным автоматическим люком. Замер, производство и монтаж под ключ по всей России. От 3,5 млн ₽, 800–3 500 бутылок, монтаж до 10 дней.',idx,'index.html',first=True,ld=PROD_LD)
 
 # ---------- pogreb ----------
 LIFT='''<section class="sec" style="padding-top:0"><div class="wrap lift">
@@ -126,7 +126,7 @@ LIFT='''<section class="sec" style="padding-top:0"><div class="wrap lift">
 anat=S['ANATOMY'].replace('{{DIAGRAM}}',D).replace(' style="padding-top:0"','')
 p=page_hero('Устройство','Как устроен спиральный погреб','Бетонные блоки, мембрана, винтовая лестница, свет и стеклянный люк. Разбираем по частям, из чего состоит погреб и почему ему не нужно электричество.','media/top-hatch.jpg','Вид сверху сквозь стеклянный люк на лестницу погреба')
 p+=anat+S['LID']+LIFT+INSIDE.replace('Ниши для бутылок, ящиков и шампанского по всей спирали','Так выглядит спуск в погреб')+S['FAQ']+CTA
-doc('pogreb.html','Устройство, ПОGREB WINE','Устройство спирального винного погреба: люк, лестница, блоки М500, мембрана ЭПДМ, кессон, вентиляция, подсветка.',p,'pogreb.html',ld=[faq_ld(S['FAQ']),crumbs_ld([('index.html','Главная'),('pogreb.html','Устройство')])],img='media/top-hatch.jpg')
+doc('pogreb.html','Как устроен спиральный винный погреб: люк, лестница, гидроизоляция · ПОGREB WINE','Устройство спирального винного погреба: люк, лестница, блоки М500, мембрана ЭПДМ, кессон, вентиляция, подсветка.',p,'pogreb.html',ld=[faq_ld(S['FAQ']),crumbs_ld([('index.html','Главная'),('pogreb.html','Устройство')])],img='media/top-hatch.jpg')
 
 # ---------- about ----------
 ab=page_hero('О погребе','Место, где вино ждёт своего часа','Спиральный погреб под полом дома: идея из Франции 1977 года, модульные блоки из камня и наш автоматический люк. Рассказываем, что это и почему так вино хранится лучше всего.','media/spiral-close.jpg','Винтовая лестница погреба сверху, ниши с бутылками по всей высоте')
@@ -178,7 +178,7 @@ ab+='''<section class="sec" style="padding-top:0"><div class="wrap about-intro">
   </div>
 </div></section>
 '''+CTA
-doc('about.html','О погребе, ПОGREB WINE','Что такое спиральный винный погреб, история идеи с 1977 года, материалы и компания ПОGREB WINE.',ab,'about.html',ld=[crumbs_ld([('index.html','Главная'),('about.html','О погребе')])])
+doc('about.html','Спиральный винный погреб: история, материалы, компания · ПОGREB WINE','Что такое спиральный винный погреб, история идеи с 1977 года, материалы и компания ПОGREB WINE.',ab,'about.html',ld=[crumbs_ld([('index.html','Главная'),('about.html','О погребе')])])
 
 # ---------- etazherki ----------
 e=page_hero('Этажерки','Этажерка, которая поднимается из пола','Автоматическая винная этажерка из нержавеющей стали. Закрытая, она почти не видна в полу, а по касанию поднимается и плавно вращается, показывая бутылки.',None)
@@ -257,13 +257,13 @@ o+='''<section class="sec" style="padding-top:0"><div class="wrap">
 ])+'''  </div>
 </div></section>
 '''+CTA
-doc('objects.html','Объекты, ПОGREB WINE','Реализованные винные погреба: Панинотека в Можайске, вилла в Хосте, Калининград, Екатеринбург, Подмосковье. Фото и видео монтажа.',o,'objects.html',ld=[crumbs_ld([('index.html','Главная'),('objects.html','Объекты')])])
+doc('objects.html','Винные погреба в домах клиентов: объекты с фото и видео · ПОGREB WINE','Реализованные винные погреба: Панинотека в Можайске, вилла в Хосте, Калининград, Екатеринбург, Подмосковье. Фото и видео монтажа.',o,'objects.html',ld=[crumbs_ld([('index.html','Главная'),('objects.html','Объекты')])])
 
 # ---------- price ----------
 pk=re.sub(r'\s*<div class="sec-head">.*?</p>\s*</div>\s*\n','\n',S['PACKAGE'],count=1,flags=re.S).replace(' class="sec" id="pack"',' class="sec" id="pack" style="padding-top:0"')
 pr=page_hero('Стоимость','Погреб от 3,5 млн ₽','Итоговая цена зависит от места установки, глубины, отделки и инженерии. Ниже что входит в базовую цену и что добавляется по проекту. Точную сумму считаем после замера.')
 pr+=pk+S['PROCESS']+CTA
-doc('price.html','Стоимость, ПОGREB WINE','Стоимость винного погреба: базовая комплектация от 3,5 млн ₽, опции, этажерка Beerlift от 250 000 ₽, сроки изготовления и монтажа.',pr,'price.html',ld=PROD_LD+[crumbs_ld([('index.html','Главная'),('price.html','Стоимость')])])
+doc('price.html','Цена винного погреба под ключ — от 3,5 млн ₽ · ПОGREB WINE','Стоимость винного погреба под ключ: базовая комплектация от 3,5 млн ₽, опции, этажерка Beerlift от 250 000 ₽, сроки изготовления и монтажа.',pr,'price.html',ld=PROD_LD+[crumbs_ld([('index.html','Главная'),('price.html','Стоимость')])])
 
 # ---------- architects ----------
 band=S['ARCHITECTS'].replace('href="#contact" data-scroll data-role="architect"','href="#arch-form" data-scroll')
@@ -289,11 +289,11 @@ form=S['CONTACT'].replace('<section class="sec" id="contact" style="padding-top:
 a=band.replace('<div class="wrap sec">','<div class="wrap sec" style="padding-top:calc(170px + env(safe-area-inset-top,0px))">')
 a=a.replace('<span class="kicker" style="color:var(--bone);opacity:.8">Для архитекторов и дизайнеров интерьеров</span>','<div class="crumb" style="color:rgba(242,235,227,.75)"><a href="index.html">Главная</a> / Архитекторам</div><span class="kicker" style="color:var(--bone);opacity:.8;margin-top:28px">Для архитекторов и дизайнеров интерьеров</span>')
 a+=why+form
-doc('architects.html','Архитекторам, ПОGREB WINE','Агентское вознаграждение 5–10% для архитекторов и дизайнеров интерьеров за винные погреба в проектах клиентов.',a,'architects.html',ld=[crumbs_ld([('index.html','Главная'),('architects.html','Архитекторам')])])
+doc('architects.html','Винный погреб в проекте дома — архитекторам и дизайнерам · ПОGREB WINE','Агентское вознаграждение 5–10% для архитекторов и дизайнеров интерьеров за винные погреба в проектах клиентов.',a,'architects.html',ld=[crumbs_ld([('index.html','Главная'),('architects.html','Архитекторам')])])
 
 # ---------- contacts ----------
 ct=S['CONTACT'].replace('<section class="sec" id="contact" style="padding-top:0">','<section class="sec" id="contact" style="padding-top:calc(170px + env(safe-area-inset-top,0px))">')
 ct=ct.replace('<span class="kicker">Контакты</span>','<div class="crumb"><a href="index.html">Главная</a> / Контакты</div><span class="kicker" style="margin-top:28px">Контакты</span>')
-doc('contacts.html','Контакты, ПОGREB WINE','Контакты ПОGREB WINE: директор Роман Голубев, офис в Саратове, заявка на расчёт винного погреба.',ct,'contacts.html',ld=[crumbs_ld([('index.html','Главная'),('contacts.html','Контакты')])])
+doc('contacts.html','Заказать винный погреб под ключ — контакты · ПОGREB WINE','Контакты ПОGREB WINE: директор Роман Голубев, офис в Саратове, заявка на расчёт винного погреба.',ct,'contacts.html',ld=[crumbs_ld([('index.html','Главная'),('contacts.html','Контакты')])])
 exec(open(os.path.join(BASE,'build_more.py'),encoding='utf-8').read())
 print('built')
