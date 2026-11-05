@@ -12,6 +12,8 @@ os.makedirs(OUT,exist_ok=True)
 METRIKA_ID='113845245'
 # Подтверждение прав в Яндекс Вебмастере (код тот же, что в файле yandex_04a979bc8470ebc1.html, его кладёт build.py)
 YANDEX_VERIFY='<meta name="yandex-verification" content="04a979bc8470ebc1">'
+# Значок сайта во вкладке браузера и в поиске (файлы лежат в src/icons, build.py кладёт их в корень сайта)
+YANDEX_VERIFY+='<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">'
 METRIKA=r'''<script>if(/(^|\.)pogreb-wine\.ru$/.test(location.hostname)){(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='''+METRIKA_ID+'''','ym');ym('''+METRIKA_ID+''',"init",{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",accurateTrackBounce:true,trackLinks:true});}</script>
 '''
 FONTS='''<link rel="preconnect" href="https://fonts.googleapis.com">
