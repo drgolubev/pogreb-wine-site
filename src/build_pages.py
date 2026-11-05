@@ -33,7 +33,7 @@ def header(active):
     </div>
   </div>
 </header>
-<div class="mobile-nav" id="mnav">
+<div class="mobile-nav" id="mnav" data-lenis-prevent>
   <a href="index.html"{' class="is-active"' if active=='index.html' else ''}>Главная</a>{links}
   <div class="m-contacts"><span>Роман Голубев, директор</span><a href="tel:+79172057000">+7 917 205-70-00</a><span>Офис</span><a href="tel:+79271575888">+7 927 157-58-88</a></div>
 </div>
