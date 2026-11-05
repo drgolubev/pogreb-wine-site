@@ -201,7 +201,8 @@ _p = os.path.join(OUT, '404.html')
 _h = open(_p, encoding='utf-8').read().replace('<head>', '<head><base href="/"><meta name="robots" content="noindex">', 1)
 open(_p, 'w', encoding='utf-8').write(_h)
 OLD = [('Главная', ''), ('О-нас', 'about.html'), ('О-погребах', 'about.html'), ('Каталог', 'price.html'),
-       ('Партнеры', 'architects.html'), ('Партнёры', 'architects.html'), ('Контакты', 'contacts.html')]
+       ('Партнеры', 'architects.html'), ('Партнёры', 'architects.html'), ('Контакты', 'contacts.html'),
+       ('История', 'about.html')]
 ht = ['# Сайт ПОGREB WINE. Файл собирается автоматически (src/build_more.py), руками не править.', 'ErrorDocument 404 /404.html', '<IfModule mod_alias.c>']
 for old, new in OLD:
     for v in sorted({old, old.lower()}):
