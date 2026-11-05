@@ -22,7 +22,16 @@
 
   /* header + mobile nav */
   var head = document.querySelector('.site-head');
-  function onScroll(){ head.classList.toggle('is-solid', (window.scrollY || 0) > 40); }
+  var lastY = 0, root = document.documentElement;
+  function onScroll(){
+    var y = window.scrollY || 0;
+    head.classList.toggle('is-solid', y > 40);
+    /* шапка прячется, когда листаешь вниз, и возвращается, когда листаешь вверх */
+    if (root.classList.contains('menu-open') || y < 140) root.classList.remove('head-hidden');
+    else if (y > lastY + 6) root.classList.add('head-hidden');
+    else if (y < lastY - 6) root.classList.remove('head-hidden');
+    if (Math.abs(y - lastY) > 6 || y < 140) lastY = y;
+  }
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   var burger = document.querySelector('.burger');
   function setMenu(open){
