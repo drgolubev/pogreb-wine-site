@@ -50,7 +50,7 @@ mz+='''<section class="sec" style="padding-top:0"><div class="wrap passport">
     <figure style="aspect-ratio:3/4"><img src="media/guest-bottle.jpg" alt="Гость поднимается из погреба с бутылкой"><figcaption>За бутылкой к ужину</figcaption></figure>
     <figure style="aspect-ratio:4/3"><img src="media/hall-hatch.jpg" alt="Закрытый люк погреба в зале перед винной стеной"><figcaption>Люк в зале, перед винной стеной</figcaption></figure>
     <figure style="aspect-ratio:3/4"><img src="media/glass-angle.jpg" alt="Стеклянный люк под углом"><figcaption>Триплекс с чёрной стемалитовой полосой</figcaption></figure>
-    <figure style="aspect-ratio:3/4"><img src="media/spiral-close.jpg" alt="Дубовые ступени и ниши с бутылками"><figcaption>Дубовые ступени и ниши</figcaption></figure>
+    <figure style="aspect-ratio:3/4"><img src="media/spiral-stairs.jpg" alt="Дубовые ступени и ниши с бутылками"><figcaption>Дубовые ступени и ниши</figcaption></figure>
     <figure style="aspect-ratio:4/3"><img src="media/wine-wall.jpg" alt="Винная стена ресторана"><figcaption>Винная стена Панинотеки</figcaption></figure>
   </div>
 </div></section>
